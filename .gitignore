@@ -1,0 +1,93 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+package-lock.json.bak
+
+# Dependencies & Environments (Python / AI Service)
+
+venv/
+.venv/
+env/
+ENV/
+ai_service/venv/
+ai_service/.venv/
+ai_service/env/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Production Builds & Bundles
+dist/
+dist-ssr/
+build/
+client/dist/
+client/build/
+*.local
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+server/.env
+client/.env
+ai_service/.env
+# Exception: keep example env configurations tracked
+!.env.example
+!server/.env.example
+
+# Logs & Diagnostics
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime & Temporary Data
+*.pid
+*.seed
+*.pid.lock
+.temp/
+.tmp/
+
+# Uploaded User Files (Ignore user-submitted uploads, preserve sample corridor fixtures)
+server/uploads/pothole-*
+server/uploads/annotated-pothole-*
+
+# AI Model Checkpoints & Large Weights (Optional: uncomment if not using Git LFS)
+# *.pt
+# *.onnx
+# *.h5
+# ai_service/weights/*.pt
+
+# OS & System Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE & Editor Settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

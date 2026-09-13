@@ -1,0 +1,1566 @@
+[
+  {
+    "trackingId": "POT-2026-415101",
+    "title": "High Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789307747251-173196303.jpeg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789307747251-173196303.jpeg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.44,
+        "bboxNormalized": [
+          0.6092,
+          0.4538,
+          0.9571,
+          0.5767
+        ],
+        "bboxPixels": {
+          "x": 731,
+          "y": 726,
+          "width": 417,
+          "height": 196
+        },
+        "roadAreaPercent": 4.27,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.24,
+        "bboxNormalized": [
+          0.1437,
+          0.4689,
+          0.3355,
+          0.5291
+        ],
+        "bboxPixels": {
+          "x": 172,
+          "y": 750,
+          "width": 230,
+          "height": 96
+        },
+        "roadAreaPercent": 1.16,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 71,
+    "severityDetails": "HIGH SEVERITY: 2 active road fissure/depression found.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T13:55:49.371Z",
+    "_id": "6aa6ab651327343c1a95c8ed",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:55:49.371Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-432790",
+    "title": "None Severity Pothole - Mahatma Gandhi Marg",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.2045,
+        28.5684
+      ]
+    },
+    "address": {
+      "displayName": "Sports Injury Centre, Safdarjung Hospital (Part of SJH), New Delhi, Mahatma Gandhi Marg, Kidwai Nagar, New Delhi, Delhi, 110023, India",
+      "road": "Mahatma Gandhi Marg",
+      "suburb": "Kidwai Nagar",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "postcode": "110023",
+      "roadType": "hospital"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789307183955-567801135.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789307183955-567801135.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [],
+    "severity": "None",
+    "hazardScore": 0,
+    "severityDetails": "Road surface inspected. No hazardous potholes or distress detected.",
+    "aiModel": "Integrated Computer Vision Engine",
+    "assignedAuthority": {
+      "id": "PWD_DELHI_NEW_DELHI",
+      "name": "Delhi Public Works Department (New Delhi Division)",
+      "department": "State Highway & Major District Road (MDR) Maintenance Wing",
+      "email": "ee.newdelhi@pwd.delhi.gov.in",
+      "helpline": "181 (CM Road Grievance Helpline) / 1800-11-0093",
+      "escalationSLA": "48 Hours (Major Traffic Corridor)",
+      "jurisdictionReason": "Classified as State Highway / Major District Road corridor (Mahatma Gandhi Marg). Under jurisdiction of Delhi PWD, New Delhi Division."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T13:46:32.387Z",
+    "_id": "6aa6a9381327343c1a95c8ec",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:46:32.387Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with None severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-403756",
+    "title": "None Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.21,
+        28.5355
+      ]
+    },
+    "address": {
+      "displayName": "Shivalik, Malviya Nagar, South, Delhi, South Delhi, Delhi, 110017, India",
+      "road": "Local Street",
+      "suburb": "Malviya Nagar",
+      "city": "Delhi",
+      "state": "Delhi",
+      "postcode": "110017",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789306809763-889131823.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789306809763-889131823.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [],
+    "severity": "None",
+    "hazardScore": 0,
+    "severityDetails": "Road surface inspected. No hazardous potholes or major distress detected.",
+    "aiModel": "YOLOv8-Pothole-Inspector",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_DELHI",
+      "name": "Delhi Municipal Corporation (Nagar Nigam)",
+      "department": "Civil Works & Ward Road Maintenance Division (Delhi, South Delhi)",
+      "email": "cmo.delhi@delhiurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Delhi Municipal Corporation (Nagar Nigam) (Malviya Nagar, Delhi)."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T13:40:10.121Z",
+    "_id": "6aa6a7ba1327343c1a95c8eb",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:40:10.121Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with None severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-993632",
+    "title": "High Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.21,
+        28.5355
+      ]
+    },
+    "address": {
+      "displayName": "Shivalik, Malviya Nagar, South, Delhi, South Delhi, Delhi, 110017, India",
+      "road": "Local Street",
+      "suburb": "Malviya Nagar",
+      "city": "Delhi",
+      "state": "Delhi",
+      "postcode": "110017",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789306795095-306418396.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789306795095-306418396.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.44,
+        "bboxNormalized": [
+          0.6092,
+          0.4538,
+          0.9571,
+          0.5767
+        ],
+        "bboxPixels": {
+          "x": 731,
+          "y": 726,
+          "width": 417,
+          "height": 196
+        },
+        "roadAreaPercent": 4.27,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.24,
+        "bboxNormalized": [
+          0.1437,
+          0.4689,
+          0.3355,
+          0.5291
+        ],
+        "bboxPixels": {
+          "x": 172,
+          "y": 750,
+          "width": 230,
+          "height": 96
+        },
+        "roadAreaPercent": 1.16,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 71,
+    "severityDetails": "HIGH SEVERITY: 2 active road fissure/depression found.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_DELHI",
+      "name": "Delhi Municipal Corporation (Nagar Nigam)",
+      "department": "Civil Works & Ward Road Maintenance Division (Delhi, South Delhi)",
+      "email": "cmo.delhi@delhiurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Delhi Municipal Corporation (Nagar Nigam) (Malviya Nagar, Delhi)."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T13:39:57.371Z",
+    "_id": "6aa6a7ad1327343c1a95c8ea",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:39:57.371Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-214835",
+    "title": "None Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.21,
+        28.5355
+      ]
+    },
+    "address": {
+      "displayName": "Shivalik, Malviya Nagar, South, Delhi, South Delhi, Delhi, 110017, India",
+      "road": "Local Street",
+      "suburb": "Malviya Nagar",
+      "city": "Delhi",
+      "state": "Delhi",
+      "postcode": "110017",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789306678358-841732938.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789306678358-841732938.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [],
+    "severity": "None",
+    "hazardScore": 0,
+    "severityDetails": "Road surface inspected. No hazardous potholes or distress detected.",
+    "aiModel": "Integrated Computer Vision Engine",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_DELHI",
+      "name": "Delhi Municipal Corporation (Nagar Nigam)",
+      "department": "Civil Works & Ward Road Maintenance Division (Delhi, South Delhi)",
+      "email": "cmo.delhi@delhiurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Delhi Municipal Corporation (Nagar Nigam) (Malviya Nagar, Delhi)."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T13:37:58.683Z",
+    "_id": "6aa6a7368597be89c664e543",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:37:58.684Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with None severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-785067",
+    "title": "Critical Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.21,
+        28.5355
+      ]
+    },
+    "address": {
+      "displayName": "Shivalik, Malviya Nagar, South, Delhi, South Delhi, Delhi, 110017, India",
+      "road": "Local Street",
+      "suburb": "Malviya Nagar",
+      "city": "Delhi",
+      "state": "Delhi",
+      "postcode": "110017",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789306553546-704259794.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789306553546-704259794.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.32,
+          0.62,
+          0.51,
+          0.78
+        ],
+        "bboxPixels": {
+          "x": 256,
+          "y": 372,
+          "width": 152,
+          "height": 96
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.557,
+          0.647,
+          0.7140000000000001,
+          0.774
+        ],
+        "bboxPixels": {
+          "x": 446,
+          "y": 388,
+          "width": 126,
+          "height": 76
+        },
+        "roadAreaPercent": 2,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      },
+      {
+        "id": "det_3",
+        "label": "pothole",
+        "confidence": 0.85,
+        "bboxNormalized": [
+          0.174,
+          0.744,
+          0.348,
+          0.888
+        ],
+        "bboxPixels": {
+          "x": 139,
+          "y": 446,
+          "width": 139,
+          "height": 86
+        },
+        "roadAreaPercent": 2.5,
+        "depthEstimate": "Surface Fatigue Fissure"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 94,
+    "severityDetails": "Critical hazard: Multiple or extensive road craters covering ~7.5% of lane surface. Severe risk of vehicular loss of control or two-wheeler crash.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_DELHI",
+      "name": "Delhi Municipal Corporation (Nagar Nigam)",
+      "department": "Civil Works & Ward Road Maintenance Division (Delhi, South Delhi)",
+      "email": "cmo.delhi@delhiurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Delhi Municipal Corporation (Nagar Nigam) (Malviya Nagar, Delhi)."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T13:35:54.360Z",
+    "_id": "6aa6a6ba7c3e87a3f8e40950",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:35:54.361Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-594282",
+    "title": "Critical Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.310318,
+        24.644308
+      ]
+    },
+    "address": {
+      "displayName": "Guna, Guna NagarTahsil, Guna, Madhya Pradesh, 473001, India",
+      "road": "Local Street",
+      "suburb": "",
+      "city": "Guna",
+      "state": "Madhya Pradesh",
+      "postcode": "473001",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789305845502-435592465.jpeg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789305845502-435592465.jpeg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.32,
+          0.62,
+          0.51,
+          0.78
+        ],
+        "bboxPixels": {
+          "x": 256,
+          "y": 372,
+          "width": 152,
+          "height": 96
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.557,
+          0.647,
+          0.7140000000000001,
+          0.774
+        ],
+        "bboxPixels": {
+          "x": 446,
+          "y": 388,
+          "width": 126,
+          "height": 76
+        },
+        "roadAreaPercent": 2,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      },
+      {
+        "id": "det_3",
+        "label": "pothole",
+        "confidence": 0.85,
+        "bboxNormalized": [
+          0.174,
+          0.744,
+          0.348,
+          0.888
+        ],
+        "bboxPixels": {
+          "x": 139,
+          "y": 446,
+          "width": 139,
+          "height": 86
+        },
+        "roadAreaPercent": 2.5,
+        "depthEstimate": "Surface Fatigue Fissure"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 94,
+    "severityDetails": "Critical hazard: Multiple or extensive road craters covering ~7.5% of lane surface. Severe risk of vehicular loss of control or two-wheeler crash.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_GUNA",
+      "name": "Guna Municipal Council (Nagar Palika Parishad)",
+      "department": "Civil Works & Ward Road Maintenance Division (Guna, Guna NagarTahsil)",
+      "email": "cmo.guna@madhyapradeshurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Guna Municipal Council (Nagar Palika Parishad) (Guna)."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T13:24:06.140Z",
+    "_id": "6aa6a3f67c3e87a3f8e4094f",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T13:24:06.140Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-240998",
+    "title": "High Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.4038,
+        23.2276
+      ]
+    },
+    "address": {
+      "displayName": "Tulsi Nagar, Bhopal, Huzur Tahsil, Bhopal, Madhya Pradesh, 462001, India",
+      "road": "Local Street",
+      "suburb": "Tulsi Nagar",
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "postcode": "462001",
+      "roadType": "tertiary"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789292516004-46163310.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789292516004-46163310.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.318,
+          0.618,
+          0.506,
+          0.776
+        ],
+        "bboxPixels": {
+          "x": 254,
+          "y": 371,
+          "width": 150,
+          "height": 95
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.555,
+          0.645,
+          0.7100000000000001,
+          0.77
+        ],
+        "bboxPixels": {
+          "x": 444,
+          "y": 387,
+          "width": 124,
+          "height": 75
+        },
+        "roadAreaPercent": 1.9,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 70,
+    "severityDetails": "High hazard: Deep cavity covering ~4.9% of travel lane. High probability of rim damage or emergency swerving.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_BHOPAL",
+      "name": "Bhopal Municipal Corporation (Nagar Nigam)",
+      "department": "Civil Works & Ward Road Maintenance Division (Bhopal, Huzur Tahsil)",
+      "email": "cmo.bhopal@madhyapradeshurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Bhopal Municipal Corporation (Nagar Nigam) (Tulsi Nagar, Bhopal)."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T09:41:57.146Z",
+    "_id": "6aa66fe5ee573f940ceb0f14",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:41:57.147Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-173504",
+    "title": "High Severity Pothole - Corridor Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.3161782,
+        24.6476632
+      ]
+    },
+    "address": {
+      "displayName": "Guna, Guna NagarTahsil, Guna, Madhya Pradesh, 473001, India",
+      "road": "Corridor Road",
+      "suburb": "",
+      "city": "Guna",
+      "state": "Madhya Pradesh",
+      "postcode": "473001",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789291983259-362939924.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789291983259-362939924.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.318,
+          0.618,
+          0.506,
+          0.776
+        ],
+        "bboxPixels": {
+          "x": 254,
+          "y": 371,
+          "width": 150,
+          "height": 95
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.555,
+          0.645,
+          0.7100000000000001,
+          0.77
+        ],
+        "bboxPixels": {
+          "x": 444,
+          "y": 387,
+          "width": 124,
+          "height": 75
+        },
+        "roadAreaPercent": 1.9,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 70,
+    "severityDetails": "High hazard: Deep cavity covering ~4.9% of travel lane. High probability of rim damage or emergency swerving.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_GUNA",
+      "name": "Guna Municipal Corporation (Nagar Nigam)",
+      "department": "Urban Road Infrastructure & Civil Maintenance Wing",
+      "email": "complaints@gunamunicipal.gov.in",
+      "helpline": "1916 (National Municipal Grievance Helpline)",
+      "escalationSLA": "72 Hours (Colony & Sector Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative limits of Guna Municipal Corporation."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T09:33:04.322Z",
+    "_id": "6aa66dd0cc0de53e5e90daf4",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:33:04.324Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "_id": "seed-pothole-guna-01",
+    "trackingId": "POT-2026-473001",
+    "title": "Severe Road Hazard - AB Road, Near Cantt Circle, Guna",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.3117,
+        24.648
+      ]
+    },
+    "address": {
+      "displayName": "AB Road, Near Cantt Circle, Guna, Madhya Pradesh, 473001",
+      "road": "Agra-Bombay Road (AB Road)",
+      "suburb": "Cantt Area",
+      "city": "Guna",
+      "state": "Madhya Pradesh",
+      "postcode": "473001",
+      "roadType": "secondary"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-ringroad.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-ringroad.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.94,
+        "bboxNormalized": [
+          0.3,
+          0.58,
+          0.62,
+          0.8
+        ],
+        "bboxPixels": {
+          "x": 240,
+          "y": 348,
+          "width": 256,
+          "height": 132
+        },
+        "roadAreaPercent": 7.2,
+        "depthEstimate": "Severe Asphalt Cavity (~10cm depth)"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 88,
+    "severityDetails": "Hazardous crater near busy commercial junction in Guna. Extreme hazard to 2-wheelers and night traffic.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "GUNA",
+      "name": "Guna Municipal Council (Nagar Palika Parishad Guna)",
+      "department": "Civil Road Maintenance & Sanitation Wing",
+      "email": "cmoguna@mpurban.gov.in",
+      "helpline": "1800-233-0014 (MP e-NagarPalika 24x7 Helpline)",
+      "escalationSLA": "48 Hours",
+      "jurisdictionReason": "Residential and commercial ward corridor within limits of Nagar Palika Parishad Guna."
+    },
+    "status": "Reported",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:15:00.000Z",
+        "updatedBy": "Citizen Mobile Camera Sentinel",
+        "notes": "Citizen snapped road photo with live GPS in Guna. Automated alert generated and queued for Chief Municipal Officer (CMO)."
+      }
+    ],
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T09:15:00.000Z"
+  },
+  {
+    "_id": "seed-pothole-guna-02",
+    "trackingId": "POT-2026-473002",
+    "title": "High Speed Arterial Pothole - NH-46 Guna Bypass",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.334,
+        24.672
+      ]
+    },
+    "address": {
+      "displayName": "NH-46 Guna Bypass (Gwalior-Bhopal Highway), Guna, Madhya Pradesh",
+      "road": "NH-46 Guna Bypass",
+      "suburb": "Bypass Corridor",
+      "city": "Guna",
+      "state": "Madhya Pradesh",
+      "postcode": "473001",
+      "roadType": "motorway"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-nh48.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-nh48.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.95,
+        "bboxNormalized": [
+          0.35,
+          0.6,
+          0.65,
+          0.82
+        ],
+        "bboxPixels": {
+          "x": 280,
+          "y": 360,
+          "width": 240,
+          "height": 132
+        },
+        "roadAreaPercent": 8.1,
+        "depthEstimate": "Deep Highway Pothole (~12cm depth)"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 82,
+    "severityDetails": "High-speed lane cavity near Guna flyover ramp.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU Gwalior/Guna)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033",
+      "escalationSLA": "24 Hours (High Speed Corridor Hazard)",
+      "jurisdictionReason": "Classified as National Highway (NH-46) corridor under direct jurisdiction of NHAI."
+    },
+    "status": "In Progress",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T06:00:00.000Z",
+        "updatedBy": "Automated Vehicle Dashcam",
+        "notes": "Logged via dashcam stream on NH-46 Guna Bypass."
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-13T08:30:00.000Z",
+        "updatedBy": "NHAI Highway Patrol Squad",
+        "notes": "Warning markers placed. Cold asphalt patch squad dispatched."
+      }
+    ],
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T06:00:00.000Z"
+  },
+  {
+    "trackingId": "POT-2026-853191",
+    "title": "High Severity Pothole - Corridor Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.4038,
+        23.2276
+      ]
+    },
+    "address": {
+      "displayName": "Tulsi Nagar, Bhopal, Huzur Tahsil, Bhopal, Madhya Pradesh, 462001, India",
+      "road": "Corridor Road",
+      "suburb": "Tulsi Nagar",
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "postcode": "462001",
+      "roadType": "tertiary"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789291171302-848132203.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789291171302-848132203.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.318,
+          0.618,
+          0.506,
+          0.776
+        ],
+        "bboxPixels": {
+          "x": 254,
+          "y": 371,
+          "width": 150,
+          "height": 95
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.555,
+          0.645,
+          0.7100000000000001,
+          0.77
+        ],
+        "bboxPixels": {
+          "x": 444,
+          "y": 387,
+          "width": 124,
+          "height": 75
+        },
+        "roadAreaPercent": 1.9,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 70,
+    "severityDetails": "High hazard: Deep cavity covering ~4.9% of travel lane. High probability of rim damage or emergency swerving.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_BHOPAL",
+      "name": "Bhopal Municipal Corporation (Nagar Nigam)",
+      "department": "Urban Road Infrastructure & Civil Maintenance Wing",
+      "email": "complaints@bhopalmunicipal.gov.in",
+      "helpline": "1916 (National Municipal Grievance Helpline)",
+      "escalationSLA": "72 Hours (Colony & Sector Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative limits of Bhopal Municipal Corporation."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-13T09:19:33.298Z",
+    "_id": "6aa66aa50496be32c278ba0d",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:19:33.299Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-242016",
+    "title": "High Severity Pothole - Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0864,
+        28.4982
+      ]
+    },
+    "address": {
+      "displayName": "Udyog Vihar Phase V, Sector 19, Gurgaon, Gurugram, Haryana, 122010, India",
+      "road": "Main Road",
+      "suburb": "Sector 19",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122010",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789290379946-838189587.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789290379946-838189587.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.318,
+          0.618,
+          0.506,
+          0.776
+        ],
+        "bboxPixels": {
+          "x": 254,
+          "y": 371,
+          "width": 150,
+          "height": 95
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.555,
+          0.645,
+          0.7100000000000001,
+          0.77
+        ],
+        "bboxPixels": {
+          "x": 444,
+          "y": 387,
+          "width": 124,
+          "height": 75
+        },
+        "roadAreaPercent": 1.9,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 70,
+    "severityDetails": "High hazard: Deep cavity covering ~4.9% of travel lane. High probability of rim damage or emergency swerving.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India",
+      "department": "Ministry of Road Transport and Highways",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033",
+      "escalationSLA": "24 Hours (High Speed Corridor Hazard)",
+      "jurisdictionReason": "Classified as high-speed national arterial corridor / expressway (Main Road). Under jurisdiction of NHAI."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T09:06:19.969Z",
+    "_id": "6aa6678b22a17cfc3d60cb00",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:06:19.969Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-710073",
+    "title": "Critical Severity Pothole - Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0864,
+        28.4982
+      ]
+    },
+    "address": {
+      "displayName": "Udyog Vihar Phase V, Sector 19, Gurgaon, Gurugram, Haryana, 122010, India",
+      "road": "Main Road",
+      "suburb": "Sector 19",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122010",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/pothole-1789290277975-641848370.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789290277975-641848370.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.319,
+          0.619,
+          0.508,
+          0.778
+        ],
+        "bboxPixels": {
+          "x": 255,
+          "y": 371,
+          "width": 151,
+          "height": 95
+        },
+        "roadAreaPercent": 3,
+        "depthEstimate": "Moderate-Deep Cavity"
+      },
+      {
+        "id": "det_2",
+        "label": "pothole",
+        "confidence": 0.89,
+        "bboxNormalized": [
+          0.556,
+          0.646,
+          0.7120000000000001,
+          0.772
+        ],
+        "bboxPixels": {
+          "x": 445,
+          "y": 388,
+          "width": 125,
+          "height": 76
+        },
+        "roadAreaPercent": 2,
+        "depthEstimate": "Severe Edge Spall & Asphalt Crater"
+      },
+      {
+        "id": "det_3",
+        "label": "pothole",
+        "confidence": 0.85,
+        "bboxNormalized": [
+          0.173,
+          0.743,
+          0.346,
+          0.886
+        ],
+        "bboxPixels": {
+          "x": 138,
+          "y": 446,
+          "width": 138,
+          "height": 86
+        },
+        "roadAreaPercent": 2.5,
+        "depthEstimate": "Surface Fatigue Fissure"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 94,
+    "severityDetails": "Critical hazard: Multiple or extensive road craters covering ~7.5% of lane surface. Severe risk of vehicular loss of control or two-wheeler crash.",
+    "aiModel": "Local Computer Vision & Heuristic Analyzer",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India",
+      "department": "Ministry of Road Transport and Highways",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033",
+      "escalationSLA": "24 Hours (High Speed Corridor Hazard)",
+      "jurisdictionReason": "Classified as high-speed national arterial corridor / expressway (Main Road). Under jurisdiction of NHAI."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T09:04:38.600Z",
+    "_id": "6aa6672622a17cfc3d60caff",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T09:04:38.601Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "_id": "seed-pothole-001",
+    "trackingId": "POT-2026-104921",
+    "title": "Critical Crater - NH-48 Delhi-Gurugram Expressway",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0864,
+        28.4982
+      ]
+    },
+    "address": {
+      "displayName": "Delhi-Gurugram Expressway (NH-48), Near Ambience Mall, Gurugram",
+      "road": "Delhi-Gurugram Expressway (NH-48)",
+      "suburb": "Udyog Vihar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122002",
+      "roadType": "motorway"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-nh48.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-nh48.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.96,
+        "bboxNormalized": [
+          0.32,
+          0.6,
+          0.68,
+          0.84
+        ],
+        "bboxPixels": {
+          "x": 256,
+          "y": 360,
+          "width": 288,
+          "height": 144
+        },
+        "roadAreaPercent": 9.4,
+        "depthEstimate": "Severe Asphalt Cavity (~12cm depth)"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 94,
+    "severityDetails": "Critical hazard on high-speed expressway lane. Extreme rollover / collision risk for high-speed traffic.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India",
+      "department": "Ministry of Road Transport and Highways",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033",
+      "escalationSLA": "24 Hours (High Speed Corridor Hazard)",
+      "jurisdictionReason": "Classified as National Highway (NH-48) arterial expressway."
+    },
+    "status": "Reported",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T07:02:28.442Z",
+        "updatedBy": "Automated AI Dashcam Mobile Stream",
+        "notes": "AI model flagged 9.4% road coverage crater. Dispatched automated alert to NHAI Project Director."
+      }
+    ],
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T07:02:28.442Z"
+  },
+  {
+    "_id": "seed-pothole-002",
+    "trackingId": "POT-2026-382901",
+    "title": "High Hazard Pothole - Ring Road (Mahatma Gandhi Marg)",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.2045,
+        28.5684
+      ]
+    },
+    "address": {
+      "displayName": "Ring Road near AIIMS Flyover, Kidwai Nagar, New Delhi",
+      "road": "Mahatma Gandhi Marg (Ring Road)",
+      "suburb": "Kidwai Nagar",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "postcode": "110029",
+      "roadType": "primary"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-ringroad.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-ringroad.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.92,
+        "bboxNormalized": [
+          0.25,
+          0.55,
+          0.52,
+          0.76
+        ],
+        "bboxPixels": {
+          "x": 200,
+          "y": 330,
+          "width": 216,
+          "height": 126
+        },
+        "roadAreaPercent": 5.8,
+        "depthEstimate": "Heavy Edge Fatigue (~8cm depth)"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 78,
+    "severityDetails": "Deep pothole adjacent to flyover expansion joint causing sudden vehicle braking on main carriageway.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "PWD",
+      "name": "Public Works Department (State/City Arterial)",
+      "department": "Delhi PWD Road Maintenance Wing",
+      "email": "delhi.pwd.roads@nic.in",
+      "helpline": "1800-11-0093",
+      "escalationSLA": "48 Hours (Major Traffic Corridor)",
+      "jurisdictionReason": "Classified as primary city arterial corridor (Ring Road > 60 ft width)."
+    },
+    "status": "In Progress",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-12T05:02:28.442Z",
+        "updatedBy": "Automated AI Dashcam",
+        "notes": "AI detection logged and sent to PWD South Division."
+      },
+      {
+        "status": "Acknowledged",
+        "timestamp": "2026-09-12T13:02:28.442Z",
+        "updatedBy": "Er. Rajesh Kumar (PWD Assistant Engineer)",
+        "notes": "Site inspected. Cold-mix asphalt patching squad scheduled for night shift."
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-13T03:02:28.442Z",
+        "updatedBy": "PWD South Road Team",
+        "notes": "Barricading deployed. Patching work underway."
+      }
+    ],
+    "source": "dashcam",
+    "reportedAt": "2026-09-12T05:02:28.442Z"
+  },
+  {
+    "_id": "seed-pothole-003",
+    "trackingId": "POT-2026-491024",
+    "title": "Medium Severity Pothole - Press Enclave Road, Saket",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.2185,
+        28.5284
+      ]
+    },
+    "address": {
+      "displayName": "Press Enclave Marg, Opposite Select Citywalk, Saket, New Delhi",
+      "road": "Press Enclave Marg",
+      "suburb": "Saket",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "postcode": "110017",
+      "roadType": "secondary"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-saket.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-saket.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.88,
+        "bboxNormalized": [
+          0.4,
+          0.65,
+          0.65,
+          0.82
+        ],
+        "bboxPixels": {
+          "x": 320,
+          "y": 390,
+          "width": 200,
+          "height": 102
+        },
+        "roadAreaPercent": 3.4,
+        "depthEstimate": "Moderate Surface Depression"
+      }
+    ],
+    "severity": "Medium",
+    "hazardScore": 48,
+    "severityDetails": "Surface erosion leading to water accumulation and tire deflection.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "MCD_SOUTH",
+      "name": "MCD - South Zone",
+      "department": "Municipal Corporation of Delhi, Engineering Dept",
+      "email": "ee-maint-south@mcd.gov.in",
+      "helpline": "155305",
+      "escalationSLA": "72 Hours (Colony & Inner Streets)",
+      "jurisdictionReason": "Colony / sector connecting road within MCD South Zone jurisdiction."
+    },
+    "status": "Acknowledged",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-12T19:02:28.442Z",
+        "updatedBy": "Citizen Mobile Camera App",
+        "notes": "Pothole detected with GPS stamp."
+      },
+      {
+        "status": "Acknowledged",
+        "timestamp": "2026-09-13T01:02:28.442Z",
+        "updatedBy": "MCD Control Room Officer",
+        "notes": "Ticket assigned to Saket Ward Junior Engineer."
+      }
+    ],
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-12T19:02:28.442Z"
+  },
+  {
+    "_id": "seed-pothole-004",
+    "trackingId": "POT-2026-582019",
+    "title": "Resolved Pothole - Barakhamba Road, Connaught Place",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.228,
+        28.6315
+      ]
+    },
+    "address": {
+      "displayName": "Barakhamba Road, Near Metro Gate 3, Connaught Place, New Delhi",
+      "road": "Barakhamba Road",
+      "suburb": "Connaught Place",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "postcode": "110001",
+      "roadType": "secondary"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-cp.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-cp.jpg",
+      "resolutionProofUrl": "/uploads/sample-cp-resolved.jpg"
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.91,
+        "bboxNormalized": [
+          0.35,
+          0.58,
+          0.58,
+          0.78
+        ],
+        "bboxPixels": {
+          "x": 280,
+          "y": 348,
+          "width": 184,
+          "height": 120
+        },
+        "roadAreaPercent": 4.1,
+        "depthEstimate": "Bitumen Spall & Aggregate Cavity"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 68,
+    "severityDetails": "Distressed road surface near pedestrian crossing.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "NDMC",
+      "name": "New Delhi Municipal Council (NDMC)",
+      "department": "Civil Engineering Road Division",
+      "email": "controlroom@ndmc.gov.in",
+      "helpline": "1533",
+      "escalationSLA": "36 Hours",
+      "jurisdictionReason": "Located within New Delhi Municipal Council (NDMC) central governance zone."
+    },
+    "status": "Resolved",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-11T09:02:28.442Z",
+        "updatedBy": "Civic Patrol Dashcam",
+        "notes": "Pothole automatically tagged and logged."
+      },
+      {
+        "status": "Acknowledged",
+        "timestamp": "2026-09-11T17:02:28.442Z",
+        "updatedBy": "NDMC Civil Wing",
+        "notes": "Work order #NDMC-2026-88 issued."
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-12T09:02:28.442Z",
+        "updatedBy": "NDMC Quick Response Unit",
+        "notes": "Hot-mix asphalt patch rolled and sealed."
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-09-13T04:02:28.442Z",
+        "updatedBy": "NDMC Quality Inspector",
+        "notes": "Work completed and verified. Road surface restored to smooth finish.",
+        "proofImage": "/uploads/sample-cp-resolved.jpg"
+      }
+    ],
+    "source": "dashcam",
+    "reportedAt": "2026-09-11T09:02:28.442Z"
+  },
+  {
+    "_id": "seed-pothole-005",
+    "trackingId": "POT-2026-691230",
+    "title": "Low Severity Wear - Mall Road, Civil Lines",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.214,
+        28.6872
+      ]
+    },
+    "address": {
+      "displayName": "Mall Road, Near Delhi University North Campus, Civil Lines, Delhi",
+      "road": "Mall Road",
+      "suburb": "Civil Lines",
+      "city": "Delhi",
+      "state": "Delhi",
+      "postcode": "110054",
+      "roadType": "residential"
+    },
+    "images": {
+      "originalUrl": "/uploads/sample-mallroad.jpg",
+      "annotatedUrl": "/uploads/annotated-sample-mallroad.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "det_1",
+        "label": "pothole",
+        "confidence": 0.85,
+        "bboxNormalized": [
+          0.38,
+          0.62,
+          0.55,
+          0.75
+        ],
+        "bboxPixels": {
+          "x": 304,
+          "y": 372,
+          "width": 136,
+          "height": 78
+        },
+        "roadAreaPercent": 1.8,
+        "depthEstimate": "Shallow Surface Depression"
+      }
+    ],
+    "severity": "Low",
+    "hazardScore": 28,
+    "severityDetails": "Minor surface fatigue and gravel wear. No immediate structural danger.",
+    "aiModel": "YOLOv8-Pothole-Segmenter (HuggingFace)",
+    "assignedAuthority": {
+      "id": "MCD_NORTH",
+      "name": "MCD - North Zone",
+      "department": "Municipal Corporation of Delhi, Engineering Dept",
+      "email": "ee-maint-north@mcd.gov.in",
+      "helpline": "155305",
+      "escalationSLA": "72 Hours",
+      "jurisdictionReason": "Colony / residential street within MCD North Zone jurisdiction."
+    },
+    "status": "Reported",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-13T08:02:28.442Z",
+        "updatedBy": "Dashcam Road Survey",
+        "notes": "Automated survey entry."
+      }
+    ],
+    "source": "dashcam",
+    "reportedAt": "2026-09-13T08:02:28.442Z"
+  }
+]
