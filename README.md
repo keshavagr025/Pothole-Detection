@@ -192,15 +192,4 @@ python app.py
 
 ---
 
-## API Endpoints Reference
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/potholes/detect` | Upload image + GPS &rarr; Run AI &rarr; Map authority &rarr; Auto-dispatch |
-| `GET` | `/api/potholes` | Fetch potholes with filters (`status`, `severity`, `authority`, `search`) |
-| `GET` | `/api/potholes/:id` | Fetch single pothole detail with audit timeline |
-| `PATCH` | `/api/potholes/:id/status` | Update resolution status (`Reported`, `Acknowledged`, `In Progress`, `Resolved`) |
-| `GET` | `/api/potholes/stats` | Analytics summary metrics (total, byStatus, bySeverity, byAuthority) |
-| `GET` | `/api/potholes/dispatches` | Fetch live civic dispatch logs |
-| `GET` | `/api/potholes/authorities` | List configured civic bodies (NHAI, PWD, MCD, NDMC) |
-| `GET` | `/api/health` | Service health and database connection status |
