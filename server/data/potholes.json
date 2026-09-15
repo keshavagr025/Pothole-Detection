@@ -1,5 +1,596 @@
 [
   {
+    "trackingId": "POT-2026-551713",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394700523-155485146.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394700523-155485146.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.14,
+        "bboxNormalized": [
+          0,
+          0,
+          0.4804,
+          0.9568
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 0,
+          "width": 922,
+          "height": 1033
+        },
+        "roadAreaPercent": 45.96,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 1 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Segmentation (Secondary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:05:00.894Z",
+    "_id": "6aa7ff0c034bd995b525cab4",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:05:00.894Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-537491",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394687452-669134502.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394687452-669134502.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.14,
+        "bboxNormalized": [
+          0,
+          0,
+          0.4804,
+          0.9568
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 0,
+          "width": 922,
+          "height": 1033
+        },
+        "roadAreaPercent": 45.96,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 1 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Segmentation (Secondary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:04:47.798Z",
+    "_id": "6aa7feff034bd995b525cab3",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:04:47.798Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-783413",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394674836-378028665.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394674836-378028665.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.14,
+        "bboxNormalized": [
+          0,
+          0,
+          0.4804,
+          0.9568
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 0,
+          "width": 922,
+          "height": 1033
+        },
+        "roadAreaPercent": 45.96,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.1,
+        "bboxNormalized": [
+          0.6528,
+          0.0029,
+          0.9971,
+          0.4783
+        ],
+        "bboxPixels": {
+          "x": 1253,
+          "y": 3,
+          "width": 661,
+          "height": 513
+        },
+        "roadAreaPercent": 16.37,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 2 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Segmentation (Secondary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:04:35.207Z",
+    "_id": "6aa7fef3034bd995b525cab2",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:04:35.207Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-549992",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394659316-343491969.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394659316-343491969.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.13,
+        "bboxNormalized": [
+          0,
+          0,
+          0.5147,
+          0.8063
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 0,
+          "width": 988,
+          "height": 870
+        },
+        "roadAreaPercent": 41.51,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.08,
+        "bboxNormalized": [
+          0.7691,
+          0.3912,
+          0.9977,
+          0.6028
+        ],
+        "bboxPixels": {
+          "x": 1476,
+          "y": 422,
+          "width": 439,
+          "height": 228
+        },
+        "roadAreaPercent": 4.84,
+        "depthEstimate": "Surface Cavity",
+        "detector": "Keremberke-YOLOv8-Seg"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 2 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Segmentation (Secondary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:04:19.990Z",
+    "_id": "6aa7fee3034bd995b525cab1",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:04:19.991Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-399863",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394651695-470356157.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394651695-470356157.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.45,
+        "bboxNormalized": [
+          0,
+          0.0968,
+          0.9912,
+          0.8473
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 104,
+          "width": 1903,
+          "height": 810
+        },
+        "roadAreaPercent": 74.39,
+        "depthEstimate": "Severe Edge Spall & Deep Cavity",
+        "detector": "Samdutse-YOLOv8"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.24,
+        "bboxNormalized": [
+          0.7443,
+          0.2903,
+          0.932,
+          0.38
+        ],
+        "bboxPixels": {
+          "x": 1428,
+          "y": 313,
+          "width": 360,
+          "height": 96
+        },
+        "roadAreaPercent": 1.68,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 2 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:04:11.960Z",
+    "_id": "6aa7fedb034bd995b525cab0",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:04:11.960Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-868304",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394643574-787225347.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394643574-787225347.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.45,
+        "bboxNormalized": [
+          0,
+          0.0968,
+          0.9912,
+          0.8473
+        ],
+        "bboxPixels": {
+          "x": 0,
+          "y": 104,
+          "width": 1903,
+          "height": 810
+        },
+        "roadAreaPercent": 74.39,
+        "depthEstimate": "Severe Edge Spall & Deep Cavity",
+        "detector": "Samdutse-YOLOv8"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.24,
+        "bboxNormalized": [
+          0.7443,
+          0.2903,
+          0.932,
+          0.38
+        ],
+        "bboxPixels": {
+          "x": 1428,
+          "y": 313,
+          "width": 360,
+          "height": 96
+        },
+        "roadAreaPercent": 1.68,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 2 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "dashcam",
+    "reportedAt": "2026-09-14T14:04:03.857Z",
+    "_id": "6aa7fed3034bd995b525caaf",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:04:03.857Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
+    "trackingId": "POT-2026-105763",
+    "title": "Critical Severity Pothole - Sadar Bazar Main Road",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.0266,
+        28.4595
+      ]
+    },
+    "address": {
+      "displayName": "Sadar Bazar Main Road, Sadar Bazar, Shivaji Nagar, Sector 11A, Gurgaon, Gurugram, Haryana, 122001, India",
+      "road": "Sadar Bazar Main Road",
+      "suburb": "Shivaji Nagar",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "postcode": "122001",
+      "roadType": "tertiary"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789394588826-65562306.jpg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789394588826-65562306.jpg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.82,
+        "bboxNormalized": [
+          0.2074,
+          0.3612,
+          0.7801,
+          0.8395
+        ],
+        "bboxPixels": {
+          "x": 285,
+          "y": 277,
+          "width": 788,
+          "height": 367
+        },
+        "roadAreaPercent": 27.39,
+        "depthEstimate": "Severe Edge Spall & Deep Cavity",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "Critical",
+    "hazardScore": 99,
+    "severityDetails": "CRITICAL HAZARD: 1 large asphalt cavity detected posing high rollover/skid risk.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "NHAI",
+      "name": "National Highways Authority of India (NHAI)",
+      "department": "Project Implementation Unit (PIU - District Administration / Haryana Corridor)",
+      "email": "complaints@nhai.gov.in",
+      "helpline": "1033 (Toll Free 24x7 National Highway Helpline)",
+      "escalationSLA": "24 Hours (High Speed Arterial Corridor Hazard)",
+      "jurisdictionReason": "Classified as NH-48 National Highway corridor (Sadar Bazar Main Road). Maintained directly by NHAI PIU."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-14T14:03:16.796Z",
+    "_id": "6aa7fea4034bd995b525caae",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-14T14:03:16.799Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with Critical severity."
+      }
+    ]
+  },
+  {
     "trackingId": "POT-2026-415101",
     "title": "High Severity Pothole - Sadar Bazar Main Road",
     "location": {
