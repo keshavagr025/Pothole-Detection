@@ -166,6 +166,13 @@ python app.py
 
 ---
 
+<img width="1903" height="890" alt="image" src="https://github.com/user-attachments/assets/207959eb-6f5f-4c24-846b-f09c0cbfb6ed" />
+
+
+<img width="1842" height="827" alt="image" src="https://github.com/user-attachments/assets/2db74a20-52d1-4d35-8ac1-440c4e48a31f" />
+
+
+
 ## End-to-End Workflow Demonstration
 
 1. **Dashboard Map View**:
