@@ -448,3 +448,426 @@ input[type=range]::-webkit-slider-thumb {
   }
 }
 
+/* ==========================================================================
+   GOVERNMENT OF INDIA (GIGW) PORTAL DESIGN SYSTEM & BRANDING
+   ========================================================================== */
+
+:root {
+  --gov-navy-deep: #002147;
+  --gov-navy-mid: #0a2540;
+  --gov-navy-light: #1e3a8a;
+  --gov-saffron: #ff9933;
+  --gov-saffron-dark: #ea580c;
+  --gov-green: #138808;
+  --gov-green-dark: #15803d;
+  --gov-gold: #b45309;
+  --gov-border: #cbd5e1;
+}
+
+/* 1. National Tiranga Ribbon */
+.tiranga-strip {
+  display: flex;
+  height: 5px;
+  width: 100%;
+}
+.strip-saffron {
+  flex: 1;
+  background-color: #ff9933;
+}
+.strip-white {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.chakra-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #000080;
+  border-radius: 50%;
+}
+.strip-green {
+  flex: 1;
+  background-color: #138808;
+}
+
+/* 2. Top GIGW Utility Ribbon */
+.gov-top-bar {
+  background: #002147;
+  color: #e2e8f0;
+  font-size: 0.74rem;
+  padding: 0.35rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.gov-top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.gov-container {
+  max-width: 1680px;
+  margin: 0 auto;
+  width: 100%;
+}
+.gov-ministry-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+.gov-ministry-tag .hindi-text {
+  color: #fef08a;
+  font-weight: 700;
+}
+.gov-ministry-tag .divider {
+  color: #64748b;
+  font-size: 0.7rem;
+}
+.gov-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.gov-helpline-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.helpline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.helpline-badge:hover {
+  opacity: 0.9;
+}
+.nhai-helpline {
+  background: #ea580c;
+  color: #ffffff;
+}
+.morth-helpline {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gov-accessibility {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.gov-text-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.gov-text-btn:hover, .gov-text-btn.active {
+  background: #ffffff;
+  color: #002147;
+}
+
+/* 3. Official Government Main Banner */
+.gov-main-banner {
+  background: #ffffff;
+  border-bottom: 2px solid #002147;
+  padding: 0.85rem 1rem;
+}
+.gov-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.gov-emblem-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.ashoka-emblem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.gov-title-block {
+  display: flex;
+  flex-direction: column;
+}
+.gov-sub-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+}
+.hindi-badge {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+.gov-portal-heading {
+  font-size: clamp(1.35rem, 3.5vw, 1.95rem);
+  font-weight: 900;
+  color: #002147;
+  letter-spacing: -0.02em;
+  margin: 0.1rem 0;
+  line-height: 1.2;
+}
+.gov-portal-heading .en-portal-title {
+  color: #ea580c;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+}
+.gov-tagline {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+}
+.tagline-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 4. Official Mission Badges */
+.gov-mission-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.gov-pill-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.72rem;
+}
+.gov-pill-badge .badge-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ea580c;
+}
+.gov-pill-badge .badge-bullet.green {
+  background: #15803d;
+}
+.gov-pill-badge .badge-bullet.blue {
+  background: #0284c7;
+}
+.pill-title {
+  display: block;
+  font-weight: 800;
+  color: #0f172a;
+}
+.pill-sub {
+  display: block;
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* 5. GIGW Government Footer */
+.gov-footer-wrapper {
+  background: #002147;
+  color: #cbd5e1;
+  margin-top: auto;
+  border-top: 3px solid #ff9933;
+}
+.gov-footer-top {
+  padding: 2.5rem 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.gov-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 2rem;
+}
+.footer-logo-block {
+  margin-bottom: 0.85rem;
+}
+.footer-emblem-text {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fde047;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+.footer-dept-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.footer-dept-subtitle {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 0.15rem;
+}
+.footer-desc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+.footer-col-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #ea580c;
+  display: inline-block;
+}
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+.footer-links-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.link-bullet {
+  color: #ea580c;
+  font-weight: bold;
+}
+.footer-links-list a {
+  color: #e2e8f0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s;
+}
+.footer-links-list a:hover {
+  color: #fde047;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+}
+.contact-label {
+  display: block;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.contact-val {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.gov-footer-bottom {
+  background: #00162e;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.75rem;
+}
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.nic-attribution {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nic-badge {
+  background: #ffffff;
+  color: #002147;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.nic-sub {
+  color: #64748b;
+  font-size: 0.68rem;
+}
+.compliance-links {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+.compliance-links .dot {
+  color: #475569;
+}
+.copyright-line {
+  color: #64748b;
+  font-size: 0.7rem;
+}
+
+/* ==========================================================================
+   PRINT STYLESHEET FOR OFFICIAL FORM-VII CHALLAN
+   ========================================================================== */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+  .no-print,
+  .gov-header-wrapper,
+  .gov-footer-wrapper,
+  nav,
+  header,
+  .modal-overlay > :not(.form-vii-modal-content),
+  .btn {
+    display: none !important;
+  }
+  .modal-overlay {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+  .form-vii-modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .form-vii-printable-sheet {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+}
+

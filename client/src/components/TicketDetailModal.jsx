@@ -17,14 +17,16 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { updatePotholeStatus } from '../services/api';
+import OfficialFormVIIModal from './OfficialFormVIIModal';
 
 export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
   if (!pothole) return null;
 
+  const [showFormVII, setShowFormVII] = useState(false);
   const [activeImageTab, setActiveImageTab] = useState('annotated'); // 'annotated' | 'original' | 'resolved'
   const [newStatus, setNewStatus] = useState(pothole.status);
   const [officerNotes, setOfficerNotes] = useState('');
-  const [officerName, setOfficerName] = useState('Municipal Road Inspector');
+  const [officerName, setOfficerName] = useState('Assistant Engineer (Road Maintenance)');
   const [proofFile, setProofFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
@@ -126,10 +128,30 @@ export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className="btn btn-sm"
+              style={{
+                background: '#002147',
+                color: '#ffffff',
+                border: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                fontWeight: 800,
+                padding: '0.35rem 0.75rem'
+              }}
+              onClick={() => setShowFormVII(true)}
+              title="Generate Official Form-VII Road Distress Repair Mandate"
+            >
+              <FileText size={14} color="#fde047" />
+              प्रपत्र-VII Work Order
+            </button>
+
             <button className="btn btn-secondary btn-sm" onClick={handlePrint} title="Print Civic Notice">
-              <Printer size={15} />
-              Print Report
+              <Printer size={14} />
+              Print
             </button>
             <button
               onClick={onClose}
@@ -145,6 +167,28 @@ export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
               <X size={20} />
             </button>
           </div>
+        </div>
+
+        {/* Statutory Citizen Charter SLA Strip */}
+        <div style={{
+          background: '#eff6ff',
+          borderBottom: '1px solid #bfdbfe',
+          padding: '0.45rem 1.25rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          fontSize: '0.78rem',
+          color: '#1e3a8a',
+          flexWrap: 'wrap',
+          gap: '0.5rem'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <Shield size={14} color="#0284c7" />
+            <span><strong>नागरिक अधिकार पत्र • Statutory SLA:</strong> {pothole.assignedAuthority?.id === 'NHAI' ? '24 Hours (National Highway Mandate)' : (pothole.assignedAuthority?.id === 'PWD' ? '48 Hours (State Arterial Mandate)' : '72 Hours (Municipal Ward Mandate)')}</span>
+          </div>
+          <span style={{ fontWeight: 800, color: '#002147', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+            PUBLIC GRIEVANCE REDRESSAL ACT COMPLIANT
+          </span>
         </div>
 
         {/* Modal Body */}
@@ -532,6 +576,12 @@ export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
           </div>
         </div>
       </div>
+      {showFormVII && (
+        <OfficialFormVIIModal
+          pothole={pothole}
+          onClose={() => setShowFormVII(false)}
+        />
+      )}
     </div>
   );
 }

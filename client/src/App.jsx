@@ -8,6 +8,7 @@ import TicketList from './components/TicketList';
 import TicketDetailModal from './components/TicketDetailModal';
 import CivicDirectoryModal from './components/CivicDirectoryModal';
 import AnalyticsView from './components/AnalyticsView';
+import GovFooter from './components/GovFooter';
 
 import {
   fetchPotholes,
@@ -77,11 +78,12 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Clean Light Navbar */}
+      {/* Official Government of India Header & Navbar */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         serverHealth={serverHealth}
+        onOpenDirectory={() => setActiveTab('authorities')}
       />
 
       {/* Main Content Viewport */}
@@ -167,6 +169,9 @@ export default function App() {
           onUpdated={handlePotholeUpdated}
         />
       )}
+
+      {/* Official Government of India Web Footer (GIGW) */}
+      <GovFooter />
     </div>
   );
 }

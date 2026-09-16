@@ -165,41 +165,40 @@ export default function LandingPage({ onSelectMode, onViewMap, stats }) {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.5rem',
-          padding: '0.35rem 0.85rem',
+          padding: '0.4rem 1rem',
           borderRadius: 30,
-          background: '#eff6ff',
-          color: '#0284c7',
-          border: '1px solid #bfdbfe',
+          background: '#fef3c7',
+          color: '#92400e',
+          border: '1px solid #fde68a',
           fontSize: '0.74rem',
           fontWeight: 800,
           marginBottom: '1.25rem',
-          fontFamily: 'var(--font-mono)',
           textAlign: 'center',
           maxWidth: '100%'
         }}>
-          <ShieldCheck size={16} style={{ flexShrink: 0 }} />
-          <span>NEXT-GEN CIVIC INFRASTRUCTURE &amp; ACCIDENT PREVENTIVE AI</span>
+          <ShieldCheck size={16} color="#b45309" style={{ flexShrink: 0 }} />
+          <span>भारत सरकार • सड़क परिवहन एवं राजमार्ग मंत्रालय (MoRTH) • PM GATI SHAKTI PORTAL</span>
         </div>
 
         <h1 style={{
           fontSize: 'clamp(1.75rem, 6vw, 2.85rem)',
-          fontWeight: 800,
+          fontWeight: 900,
           letterSpacing: '-0.03em',
-          lineHeight: 1.15,
-          color: '#0f172a',
-          maxWidth: 900
+          lineHeight: 1.18,
+          color: '#002147',
+          maxWidth: 960
         }}>
-          Intelligent Road Safety &amp; <span style={{ color: '#ea580c' }}>Nagar Palika</span> Repair Gateway
+          मार्ग-दृष्टि: <span style={{ color: '#ea580c' }}>राष्ट्रीय सड़क सुरक्षा</span> एवं त्वरित मरम्मत पोर्टल
         </h1>
 
         <p style={{
           fontSize: 'clamp(0.92rem, 2.5vw, 1.08rem)',
           color: 'var(--text-secondary)',
-          maxWidth: 740,
+          maxWidth: 780,
           marginTop: '1.1rem',
           lineHeight: 1.65
         }}>
-          Transforming road safety in today&apos;s era. Powered by state-of-the-art computer vision to detect potholes, interactively tag damaged surfaces, and dispatch legally binding repair work orders to municipal authorities.
+          State-of-the-art national road infrastructure surveillance platform. Powered by YOLOv8 deep learning to identify asphalt defects, compute road hazard indices, and instantly dispatch statutory <strong>Form-VII Work Orders</strong> to NHAI, State PWD, and Nagar Palikas under the Public Grievance Redressal Act.
         </p>
 
         {/* Two Entry Mode Cards */}
