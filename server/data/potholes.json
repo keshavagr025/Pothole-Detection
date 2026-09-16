@@ -1,5 +1,98 @@
 [
   {
+    "trackingId": "POT-2026-674166",
+    "title": "High Severity Pothole - Local Street",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        77.316178,
+        24.647663
+      ]
+    },
+    "address": {
+      "displayName": "Guna, Guna NagarTahsil, Guna, Madhya Pradesh, 473001, India",
+      "road": "Local Street",
+      "suburb": "",
+      "city": "Guna",
+      "state": "Madhya Pradesh",
+      "postcode": "473001",
+      "roadType": "residential"
+    },
+    "landmark": "",
+    "images": {
+      "originalUrl": "/uploads/pothole-1789492252091-563395047.jpeg",
+      "annotatedUrl": "/uploads/annotated-pothole-1789492252091-563395047.jpeg",
+      "resolutionProofUrl": null
+    },
+    "detections": [
+      {
+        "id": "yolo_pothole_1",
+        "label": "pothole",
+        "confidence": 0.44,
+        "bboxNormalized": [
+          0.6092,
+          0.4538,
+          0.9571,
+          0.5767
+        ],
+        "bboxPixels": {
+          "x": 731,
+          "y": 726,
+          "width": 417,
+          "height": 196
+        },
+        "roadAreaPercent": 4.27,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      },
+      {
+        "id": "yolo_pothole_2",
+        "label": "pothole",
+        "confidence": 0.24,
+        "bboxNormalized": [
+          0.1437,
+          0.4689,
+          0.3355,
+          0.5291
+        ],
+        "bboxPixels": {
+          "x": 172,
+          "y": 750,
+          "width": 230,
+          "height": 96
+        },
+        "roadAreaPercent": 1.16,
+        "depthEstimate": "Asphalt Depression",
+        "detector": "Samdutse-YOLOv8"
+      }
+    ],
+    "severity": "High",
+    "hazardScore": 71,
+    "severityDetails": "HIGH SEVERITY: 2 active road fissure/depression found.",
+    "aiModel": "YOLOv8-Pothole-Detector (Primary)",
+    "assignedAuthority": {
+      "id": "MUNICIPAL_GUNA",
+      "name": "Guna Municipal Council (Nagar Palika Parishad)",
+      "department": "Civil Works & Ward Road Maintenance Division (Guna, Guna NagarTahsil)",
+      "email": "cmo.guna@madhyapradeshurban.gov.in",
+      "helpline": "181 (State CM Helpline) / 1800-233-0014 (e-NagarPalika 24x7)",
+      "escalationSLA": "48 Hours (Colony & Sector Ward Roads)",
+      "jurisdictionReason": "Colony / residential street within the administrative ward limits of Guna Municipal Council (Nagar Palika Parishad) (Guna)."
+    },
+    "status": "Reported",
+    "source": "mobile_camera",
+    "reportedAt": "2026-09-15T17:10:58.922Z",
+    "_id": "6aa97c22870ce0f6d614266e",
+    "statusHistory": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-15T17:10:58.923Z",
+        "updatedBy": "Automated AI Detection Pipeline",
+        "notes": "Initial AI detection logged. Tagged with High severity."
+      }
+    ]
+  },
+  {
     "trackingId": "POT-2026-551713",
     "title": "Critical Severity Pothole - Sadar Bazar Main Road",
     "location": {
