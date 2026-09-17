@@ -14,7 +14,7 @@ import {
   FileCheck
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { detectPothole } from '../services/api';
+import { detectPothole, getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 
 export default function DetectionStudio({ onPotholeCreated, onViewTicket }) {
   const [activeMode, setActiveMode] = useState('upload'); // 'upload' | 'dashcam' | 'webcam'
@@ -126,16 +126,26 @@ export default function DetectionStudio({ onPotholeCreated, onViewTicket }) {
     setPreviewUrl(preset.image);
 
     // Create a mock File object from the sample path so it can be uploaded
-    fetch(preset.image)
-      .then(res => res.blob())
+    const targetUrl = getMediaUrl(preset.image);
+    fetch(targetUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('Fetch failed');
+        return res.blob();
+      })
       .then(blob => {
         const file = new File([blob], `${preset.key}.jpg`, { type: 'image/jpeg' });
         setSelectedFile(file);
       })
       .catch(() => {
-        // Fallback: create an empty dummy file with correct name
-        const file = new File(["sample"], `${preset.key}.jpg`, { type: 'image/jpeg' });
-        setSelectedFile(file);
+        fetch(preset.image)
+          .then(r => r.blob())
+          .then(blob => {
+            const file = new File([blob], `${preset.key}.jpg`, { type: 'image/jpeg' });
+            setSelectedFile(file);
+          })
+          .catch(() => {
+            setSelectedFile(null);
+          });
       });
   };
 
@@ -163,9 +173,14 @@ export default function DetectionStudio({ onPotholeCreated, onViewTicket }) {
       if (selectedFile) {
         formData.append('image', selectedFile);
       } else {
-        // Fallback if preset only
-        const response = await fetch(previewUrl);
-        const blob = await response.blob();
+        let blob;
+        try {
+          const response = await fetch(getMediaUrl(previewUrl));
+          blob = await response.blob();
+        } catch {
+          const response = await fetch(previewUrl);
+          blob = await response.blob();
+        }
         formData.append('image', blob, 'preset-pothole.jpg');
       }
 
@@ -396,9 +411,14 @@ export default function DetectionStudio({ onPotholeCreated, onViewTicket }) {
             <div style={{ position: 'relative', borderRadius: 12, overflow: 'hidden', background: '#0b1329' }}>
               <div style={{ height: 320, position: 'relative' }}>
                 <img
-                  src="/uploads/sample-nh48.jpg"
+                  src={getMediaUrl('/uploads/sample-nh48.jpg')}
                   alt="Dashcam video simulation"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={(e) => {
+                    if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                      e.target.src = FALLBACK_ROAD_IMAGE;
+                    }
+                  }}
                 />
 
                 {/* Simulated AI Scanning Overlay */}
@@ -529,9 +549,14 @@ export default function DetectionStudio({ onPotholeCreated, onViewTicket }) {
               position: 'relative'
             }}>
               <img
-                src={previewUrl}
+                src={getMediaUrl(previewUrl)}
                 alt="Selected road sample"
                 style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block' }}
+                onError={(e) => {
+                  if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                    e.target.src = FALLBACK_ROAD_IMAGE;
+                  }
+                }}
               />
               <div style={{
                 position: 'absolute',

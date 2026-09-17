@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+        
+        <rect x="32.0%" y="62.0%" width="19.0%" height="16.0%"
+              fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 2" rx="4" />
+        <rect x="32.0%" y="calc(62.0% - 24px)" width="120" height="22" fill="#ef4444" rx="3" />
+        <text x="calc(32.0% + 6px)" y="calc(62.0% - 8px)" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">
+          POTHOLE 92%
+        </text>
+      
+        <rect x="55.7%" y="64.7%" width="15.7%" height="12.7%"
+              fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 2" rx="4" />
+        <rect x="55.7%" y="calc(64.7% - 24px)" width="120" height="22" fill="#ef4444" rx="3" />
+        <text x="calc(55.7% + 6px)" y="calc(64.7% - 8px)" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">
+          POTHOLE 89%
+        </text>
+      
+        <rect x="17.4%" y="74.4%" width="17.4%" height="14.4%"
+              fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 2" rx="4" />
+        <rect x="17.4%" y="calc(74.4% - 24px)" width="120" height="22" fill="#ef4444" rx="3" />
+        <text x="calc(17.4% + 6px)" y="calc(74.4% - 8px)" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">
+          POTHOLE 85%
+        </text>
+      
+        <rect x="15" y="15" width="220" height="32" rx="6" fill="rgba(0,0,0,0.75)" />
+        <text x="25" y="36" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">
+          AI SEVERITY: <tspan fill="#ef4444">CRITICAL (94/100)</tspan>
+        </text>
+      </svg>

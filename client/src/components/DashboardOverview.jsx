@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import StatsBar from './StatsBar';
 import { useAuth } from '../context/AuthContext';
+import { getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 
 export default function DashboardOverview({
   stats,
@@ -481,9 +482,14 @@ export default function DashboardOverview({
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <div style={{ width: 44, height: 34, borderRadius: 6, overflow: 'hidden', background: '#cbd5e1', flexShrink: 0 }}>
                       <img
-                        src={p.images?.annotatedUrl || p.images?.originalUrl}
+                        src={getMediaUrl(p.images?.annotatedUrl || p.images?.originalUrl)}
                         alt="Hazard"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={(e) => {
+                          if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                            e.target.src = FALLBACK_ROAD_IMAGE;
+                          }
+                        }}
                       />
                     </div>
                     <div>

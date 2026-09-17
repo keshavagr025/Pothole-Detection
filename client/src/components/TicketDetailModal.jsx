@@ -18,7 +18,7 @@ import {
   LogIn
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { updatePotholeStatus } from '../services/api';
+import { updatePotholeStatus, getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 import OfficialFormVIIModal from './OfficialFormVIIModal';
 import { useAuth } from '../context/AuthContext';
 
@@ -277,18 +277,18 @@ export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
                 position: 'relative'
               }}>
                 <img
-                  src={
+                  src={getMediaUrl(
                     activeImageTab === 'resolved' && pothole.images?.resolutionProofUrl
                       ? pothole.images.resolutionProofUrl
                       : activeImageTab === 'annotated'
                       ? pothole.images?.annotatedUrl || pothole.images?.originalUrl
                       : pothole.images?.originalUrl
-                  }
+                  )}
                   alt="Incident Visual Evidence"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   onError={(e) => {
-                    if (pothole.images?.originalUrl && e.target.src !== pothole.images.originalUrl) {
-                      e.target.src = pothole.images.originalUrl;
+                    if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                      e.target.src = FALLBACK_ROAD_IMAGE;
                     }
                   }}
                 />

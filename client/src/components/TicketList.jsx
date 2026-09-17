@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Eye, Filter, ArrowUpDown, Clock, MapPin, CheckCircle, ExternalLink, User, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 
 export default function TicketList({
   potholes = [],
@@ -211,9 +212,14 @@ export default function TicketList({
                     <td style={{ padding: '0.85rem 1rem' }}>
                       <div style={{ width: 56, height: 42, borderRadius: 6, overflow: 'hidden', background: '#e2e8f0' }}>
                         <img
-                          src={p.images?.annotatedUrl || p.images?.originalUrl}
+                          src={getMediaUrl(p.images?.annotatedUrl || p.images?.originalUrl)}
                           alt="Thumbnail"
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          onError={(e) => {
+                            if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                              e.target.src = FALLBACK_ROAD_IMAGE;
+                            }
+                          }}
                         />
                       </div>
                     </td>

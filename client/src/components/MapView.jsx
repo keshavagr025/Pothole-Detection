@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { Filter, Eye, AlertTriangle, Shield, CheckCircle, Navigation, Layers, Search } from 'lucide-react';
-import { searchAddress } from '../services/api';
+import { searchAddress, getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 
 // Fix default Leaflet icon paths in Vite
 delete L.Icon.Default.prototype._getIconUrl;
@@ -331,9 +331,14 @@ export default function MapView({
                       position: 'relative'
                     }}>
                       <img
-                        src={pothole.images?.annotatedUrl || pothole.images?.originalUrl}
+                        src={getMediaUrl(pothole.images?.annotatedUrl || pothole.images?.originalUrl)}
                         alt="Pothole"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={(e) => {
+                          if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                            e.target.src = FALLBACK_ROAD_IMAGE;
+                          }
+                        }}
                       />
                       <span className="badge badge-critical" style={{
                         position: 'absolute',

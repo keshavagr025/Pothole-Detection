@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+        
+        <rect x="31.8%" y="61.8%" width="18.8%" height="15.8%"
+              fill="rgba(239, 68, 68, 0.15)" stroke="#f97316" stroke-width="3" stroke-dasharray="6 2" rx="4" />
+        <rect x="31.8%" y="calc(61.8% - 24px)" width="120" height="22" fill="#f97316" rx="3" />
+        <text x="calc(31.8% + 6px)" y="calc(61.8% - 8px)" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">
+          POTHOLE 92%
+        </text>
+      
+        <rect x="55.5%" y="64.5%" width="15.5%" height="12.5%"
+              fill="rgba(239, 68, 68, 0.15)" stroke="#f97316" stroke-width="3" stroke-dasharray="6 2" rx="4" />
+        <rect x="55.5%" y="calc(64.5% - 24px)" width="120" height="22" fill="#f97316" rx="3" />
+        <text x="calc(55.5% + 6px)" y="calc(64.5% - 8px)" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">
+          POTHOLE 89%
+        </text>
+      
+        <rect x="15" y="15" width="220" height="32" rx="6" fill="rgba(0,0,0,0.75)" />
+        <text x="25" y="36" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">
+          AI SEVERITY: <tspan fill="#f97316">HIGH (70/100)</tspan>
+        </text>
+      </svg>

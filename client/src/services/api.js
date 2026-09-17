@@ -7,12 +7,18 @@ export const SERVER_URL = import.meta.env.VITE_API_URL || '';
 const API_BASE = `${SERVER_URL}/api/potholes`;
 const AUTH_BASE = `${SERVER_URL}/api/auth`;
 
+export const FALLBACK_ROAD_IMAGE = '/uploads/sample-nh48.jpg';
+
 export function getMediaUrl(relativeUrl) {
-  if (!relativeUrl) return '';
+  if (!relativeUrl) return FALLBACK_ROAD_IMAGE;
   if (relativeUrl.startsWith('http://') || relativeUrl.startsWith('https://') || relativeUrl.startsWith('blob:') || relativeUrl.startsWith('data:')) {
     return relativeUrl;
   }
-  return `${SERVER_URL}${relativeUrl}`;
+  const cleanPath = relativeUrl.startsWith('/') ? relativeUrl : `/${relativeUrl}`;
+  if (SERVER_URL) {
+    return `${SERVER_URL.replace(/\/api$/, '')}${cleanPath}`;
+  }
+  return cleanPath;
 }
 
 // Attach authorization token to all outgoing requests if available

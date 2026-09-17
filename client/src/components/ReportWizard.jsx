@@ -33,7 +33,7 @@ import {
 import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import confetti from 'canvas-confetti';
-import { detectPothole, searchAddress, reverseGeocodeCoords, updatePotholeLocation } from '../services/api';
+import { detectPothole, searchAddress, reverseGeocodeCoords, updatePotholeLocation, getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 import { extractExifGPS } from '../utils/exifHelper';
 
 // Custom Pin for Locator Map
@@ -397,15 +397,26 @@ export default function ReportWizard({ initialMode = 'photo', onPotholeCreated, 
     setDetectionData(null);
     setUserSelectedBox(null);
 
-    fetch(preset.image)
-      .then(res => res.blob())
+    const targetUrl = getMediaUrl(preset.image);
+    fetch(targetUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('Fetch failed');
+        return res.blob();
+      })
       .then(blob => {
         const file = new File([blob], `${preset.key}.jpg`, { type: 'image/jpeg' });
         setSelectedFile(file);
       })
       .catch(() => {
-        const file = new File(["sample"], `${preset.key}.jpg`, { type: 'image/jpeg' });
-        setSelectedFile(file);
+        fetch(preset.image)
+          .then(r => r.blob())
+          .then(blob => {
+            const file = new File([blob], `${preset.key}.jpg`, { type: 'image/jpeg' });
+            setSelectedFile(file);
+          })
+          .catch(() => {
+            setSelectedFile(null);
+          });
       });
   };
 
@@ -462,8 +473,14 @@ Immediate field re-verification by Nagar Palika inspection squad. Erect warning 
       if (selectedFile) {
         formData.append('image', selectedFile);
       } else {
-        const response = await fetch(previewUrl);
-        const blob = await response.blob();
+        let blob;
+        try {
+          const response = await fetch(getMediaUrl(previewUrl));
+          blob = await response.blob();
+        } catch {
+          const response = await fetch(previewUrl);
+          blob = await response.blob();
+        }
         formData.append('image', blob, 'road-capture.jpg');
       }
 
@@ -768,9 +785,14 @@ Immediate field re-verification by Nagar Palika inspection squad. Erect warning 
           >
             {previewUrl ? (
               <img
-                src={previewUrl}
+                src={getMediaUrl(previewUrl)}
                 alt="Road Surface"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }}
+                onError={(e) => {
+                  if (e.target.src !== FALLBACK_ROAD_IMAGE && !e.target.src.endsWith(FALLBACK_ROAD_IMAGE)) {
+                    e.target.src = FALLBACK_ROAD_IMAGE;
+                  }
+                }}
               />
             ) : (
               <div style={{
