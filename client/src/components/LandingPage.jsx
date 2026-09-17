@@ -30,13 +30,56 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-export default function LandingPage({ onSelectMode, onViewMap, stats }) {
+export default function LandingPage({ onSelectMode, onViewMap, onNavigateDashboard, stats }) {
   const [openFaq, setOpenFaq] = useState(null);
   const { user, isAuthenticated, isOfficer, openAuthModal } = useAuth();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+
+  const pipelineSteps = [
+    {
+      step: '01',
+      title: 'Mobile / Dashcam Ingest',
+      desc: 'Citizen captures a photo or vehicles record dashcam video across any urban or highway corridor.',
+      icon: Camera,
+      color: '#ea580c',
+      bg: '#fff7ed'
+    },
+    {
+      step: '02',
+      title: 'YOLOv8 AI Detection',
+      desc: 'Deep neural network detects cavity contours, estimates depth, and calculates asphalt damage percentage.',
+      icon: Cpu,
+      color: '#0284c7',
+      bg: '#eff6ff'
+    },
+    {
+      step: '03',
+      title: 'Geo-Authority Routing',
+      desc: 'GPS coordinates resolve instantly to NHAI (Expressways), State PWD (Arterials), or MCD (Colonies).',
+      icon: Globe,
+      color: '#7c3aed',
+      bg: '#f5f3ff'
+    },
+    {
+      step: '04',
+      title: 'Statutory Form-VII Notice',
+      desc: 'Automated civic grievance mandate is dispatched directly to the nodal engineer with 24-48h SLA.',
+      icon: FileText,
+      color: '#ca8a04',
+      bg: '#fefce8'
+    },
+    {
+      step: '05',
+      title: 'Repair Proof Verification',
+      desc: 'Authority officer uploads post-repair photo proof, awarding reputation credits to the reporter.',
+      icon: CheckCircle2,
+      color: '#16a34a',
+      bg: '#f0fdf4'
+    }
+  ];
 
   const techStack = [
     {
@@ -206,235 +249,203 @@ export default function LandingPage({ onSelectMode, onViewMap, stats }) {
           State-of-the-art national road infrastructure surveillance platform. Powered by YOLOv8 deep learning to identify asphalt defects, compute road hazard indices, and instantly dispatch statutory <strong>Form-VII Work Orders</strong> to NHAI, State PWD, and Nagar Palikas under the Public Grievance Redressal Act.
         </p>
 
-        {/* Two Entry Mode Cards */}
+        {/* Hero Call to Action Buttons */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-          gap: '1.5rem',
-          width: '100%',
-          maxWidth: 960,
-          marginTop: '2.5rem'
-        }}>
-          {/* Card 1: Photo Mode */}
-          <div
-            className="mode-card"
-            onClick={() => onSelectMode('photo')}
-          >
-            <div style={{
-              width: 54,
-              height: 54,
-              borderRadius: 14,
-              background: '#fff7ed',
-              border: '1px solid #fed7aa',
-              color: '#ea580c',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '1.25rem'
-            }}>
-              <Camera size={28} />
-            </div>
-
-            <span style={{
-              background: '#fff7ed',
-              color: '#c2410c',
-              fontSize: '0.72rem',
-              fontWeight: 800,
-              padding: '0.2rem 0.6rem',
-              borderRadius: 6,
-              marginBottom: '0.5rem',
-              fontFamily: 'var(--font-mono)'
-            }}>
-              MODE 01 • CITIZEN MOBILE SNAP
-            </span>
-
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>
-              Photo Evidence &amp; Area Tagging
-            </h3>
-
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginTop: '0.5rem', lineHeight: 1.55 }}>
-              Upload or snap a road photo. Use the interactive tool to drag and select the exact damaged asphalt perimeter, run YOLOv8, and dispatch to Nagar Palika.
-            </p>
-
-            <button
-              type="button"
-              className="btn btn-accent"
-              style={{ marginTop: '1.5rem', width: '100%', padding: '0.8rem' }}
-            >
-              Report via Photo
-              <ArrowRight size={17} />
-            </button>
-          </div>
-
-          {/* Card 2: Video Mode */}
-          <div
-            className="mode-card mode-card-cyan"
-            onClick={() => onSelectMode('video')}
-          >
-            <div style={{
-              width: 54,
-              height: 54,
-              borderRadius: 14,
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
-              color: '#0284c7',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '1.25rem'
-            }}>
-              <Video size={28} />
-            </div>
-
-            <span style={{
-              background: '#eff6ff',
-              color: '#0369a1',
-              fontSize: '0.72rem',
-              fontWeight: 800,
-              padding: '0.2rem 0.6rem',
-              borderRadius: 6,
-              marginBottom: '0.5rem',
-              fontFamily: 'var(--font-mono)'
-            }}>
-              MODE 02 • DASHCAM &amp; PATROL VIDEO
-            </span>
-
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>
-              Video &amp; Dashcam Stream
-            </h3>
-
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginTop: '0.5rem', lineHeight: 1.55 }}>
-              Upload dashcam or corridor video footage. Scrub through frames to identify hazardous potholes, capture keyframes, and map road safety risks.
-            </p>
-
-            <button
-              type="button"
-              className="btn btn-primary"
-              style={{ marginTop: '1.5rem', width: '100%', padding: '0.8rem' }}
-            >
-              Report via Video
-              <ArrowRight size={17} />
-            </button>
-          </div>
-        </div>
-
-        {/* Authentication & Portal Role Access Banner */}
-        <div style={{
-          marginTop: '2rem',
-          width: '100%',
-          maxWidth: 960,
-          background: '#ffffff',
-          borderRadius: 14,
-          border: '1px solid #e2e8f0',
-          padding: '1rem 1.5rem',
+          marginTop: '2.5rem',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
           gap: '1rem',
-          boxShadow: '0 4px 6px -1px rgba(0,0,0,0.04)'
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          width: '100%',
+          maxWidth: 780
         }}>
-          {!isAuthenticated ? (
+          {isAuthenticated ? (
             <>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                  <Shield size={16} color="#002147" />
-                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>
-                    Citizen &amp; Civic Officer Access Portal
-                  </span>
-                </div>
-                <p style={{ margin: '0.2rem 0 0', fontSize: '0.75rem', color: '#64748b' }}>
-                  Sign in to track your reported road complaints, earn civic points, or manage NHAI / PWD departmental work orders.
-                </p>
-              </div>
+              <button
+                type="button"
+                onClick={onNavigateDashboard}
+                style={{
+                  background: '#002147',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: 10,
+                  padding: '0.9rem 1.85rem',
+                  fontSize: '1rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  boxShadow: '0 4px 14px rgba(0, 33, 71, 0.3)',
+                  transition: 'transform 0.15s'
+                }}
+              >
+                <span>मुख्य डैशबोर्ड खोलें • Open Command Dashboard</span>
+                <ArrowRight size={18} />
+              </button>
 
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <button
-                  type="button"
-                  onClick={() => openAuthModal('login', 'citizen')}
-                  className="btn btn-secondary btn-sm"
-                  style={{ fontWeight: 700 }}
-                >
-                  <LogIn size={13} />
-                  नागरिक प्रवेश • Citizen Login
-                </button>
-                <button
-                  type="button"
-                  onClick={() => openAuthModal('login', 'officer')}
-                  className="btn btn-primary btn-sm"
-                  style={{ background: '#002147', borderColor: '#002147', fontWeight: 700 }}
-                >
-                  <Building2 size={13} />
-                  अधिकारी लॉगिन • Officer Portal
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => onSelectMode('photo')}
+                style={{
+                  background: '#ea580c',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: 10,
+                  padding: '0.9rem 1.65rem',
+                  fontSize: '0.95rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  boxShadow: '0 4px 14px rgba(234, 88, 12, 0.3)'
+                }}
+              >
+                <Camera size={18} />
+                <span>सड़क दोष रिपोर्ट करें • Report Defect</span>
+              </button>
             </>
           ) : (
             <>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textAlign: 'left' }}>
-                <div style={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: '50%',
-                  background: isOfficer ? '#ea580c' : '#002147',
+              <button
+                type="button"
+                onClick={() => openAuthModal('login', 'citizen')}
+                style={{
+                  background: '#002147',
                   color: '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  border: 'none',
+                  borderRadius: 10,
+                  padding: '0.9rem 1.85rem',
+                  fontSize: '1rem',
                   fontWeight: 800,
-                  fontSize: '0.95rem'
-                }}>
-                  {user.name?.charAt(0).toUpperCase()}
-                </div>
-                <div>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>
-                    Welcome, {user.name}
-                  </span>
-                  <p style={{ margin: 0, fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
-                    {isOfficer ? `🏛️ ${user.department || 'Civic Authority Officer'}` : `🌟 Citizen Sentinel • ${user.reputationPoints || 25} Civic Reputation Credits`}
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <span style={{
-                  padding: '0.35rem 0.75rem',
-                  borderRadius: 20,
-                  background: '#f0fdf4',
-                  color: '#166534',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  border: '1px solid #bbf7d0',
+                  cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.35rem'
-                }}>
-                  <UserCheck size={14} />
-                  Authenticated Session Active
-                </span>
-              </div>
+                  gap: '0.6rem',
+                  boxShadow: '0 4px 14px rgba(0, 33, 71, 0.3)'
+                }}
+              >
+                <LogIn size={18} />
+                <span>पोर्टल प्रवेश • Sign In to Access Dashboard</span>
+                <ArrowRight size={18} />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => openAuthModal('register', 'citizen')}
+                style={{
+                  background: '#ffffff',
+                  color: '#002147',
+                  border: '2px solid #002147',
+                  borderRadius: 10,
+                  padding: '0.9rem 1.5rem',
+                  fontSize: '0.95rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                <UserCheck size={18} color="#002147" />
+                <span>नया खाता बनाएं • Citizen / Officer Register</span>
+              </button>
             </>
           )}
         </div>
 
-        {/* Live Map Link */}
-        <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Looking for existing hazard incidents?</span>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm"
-            onClick={onViewMap}
-            style={{ fontWeight: 700, color: '#0284c7' }}
-          >
-            <MapPin size={14} />
-            Explore Live Citizen Hazard Map
-            <ChevronRight size={14} />
-          </button>
+        {/* 1-Click Evaluation Credentials Banner */}
+        {!isAuthenticated && (
+          <div style={{
+            marginTop: '1.25rem',
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: 8,
+            padding: '0.5rem 1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            fontSize: '0.78rem',
+            color: '#475569'
+          }}>
+            <ShieldCheck size={15} color="#16a34a" />
+            <span>Evaluation Mode: 1-click test logins available for <strong>Citizen Sentinel</strong>, <strong>NHAI Chief Engineer</strong>, and <strong>PWD Officer</strong> inside Sign In.</span>
+          </div>
+        )}
+      </section>
+
+      {/* HOW THE PIPELINE WORKS: 5-Step Process */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+        <div style={{ textAlign: 'center' }}>
+          <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            System Architecture &amp; Workflow
+          </span>
+          <h2 style={{ fontSize: 'clamp(1.4rem, 4.5vw, 2rem)', fontWeight: 800, color: '#0f172a', marginTop: '0.25rem' }}>
+            How MĀRG-DRISHTI Operates End-to-End
+          </h2>
+          <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: 680, margin: '0.5rem auto 0', lineHeight: 1.6 }}>
+            A seamless automated bridge connecting road-user detections to municipal road restoration squads.
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '1rem'
+        }}>
+          {pipelineSteps.map((step, sIdx) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={sIdx}
+                className="glass-panel"
+                style={{
+                  padding: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem',
+                  position: 'relative'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 10,
+                    background: step.bg,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: step.color
+                  }}>
+                    <Icon size={20} />
+                  </div>
+                  <span style={{
+                    fontSize: '1rem',
+                    fontWeight: 900,
+                    color: '#94a3b8',
+                    fontFamily: 'var(--font-mono)'
+                  }}>
+                    {step.step}
+                  </span>
+                </div>
+
+                <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
+                  {step.title}
+                </h4>
+
+                <p style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.5, margin: 0 }}>
+                  {step.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* WHY IN TODAY'S ERA: The Real-World Urgency */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+      <section id="national-impact" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
         <div style={{ textAlign: 'center' }}>
           <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#ea580c', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Why This Solution Matters in Today&apos;s World
@@ -488,7 +499,7 @@ export default function LandingPage({ onSelectMode, onViewMap, stats }) {
       </section>
 
       {/* TECH STACK & ARCHITECTURE SECTION */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+      <section id="tech-architecture" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
         <div style={{ textAlign: 'center' }}>
           <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Under The Hood
@@ -651,7 +662,7 @@ export default function LandingPage({ onSelectMode, onViewMap, stats }) {
       </section>
 
       {/* FREQUENTLY ASKED QUESTIONS */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+      <section id="portal-faqs" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <div style={{ textAlign: 'center' }}>
           <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#ea580c', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Got Questions?

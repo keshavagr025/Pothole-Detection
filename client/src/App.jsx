@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
+import DashboardOverview from './components/DashboardOverview';
 import StatsBar from './components/StatsBar';
 import MapView from './components/MapView';
 import ReportWizard from './components/ReportWizard';
@@ -9,6 +10,8 @@ import TicketDetailModal from './components/TicketDetailModal';
 import CivicDirectoryModal from './components/CivicDirectoryModal';
 import AnalyticsView from './components/AnalyticsView';
 import GovFooter from './components/GovFooter';
+import AuthModal from './components/AuthModal';
+import { useAuth } from './context/AuthContext';
 
 import {
   fetchPotholes,
@@ -18,7 +21,10 @@ import {
 } from './services/api';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('landing'); // Default to clean, proper First Page
+  const { isAuthenticated, authModalState, closeAuthModal, openAuthModal } = useAuth();
+
+  // If authenticated, start on 'dashboard'; if unauthenticated guest, start on 'landing'
+  const [activeTab, setActiveTab] = useState(() => isAuthenticated ? 'dashboard' : 'landing');
   const [reportMode, setReportMode] = useState('photo'); // 'photo' | 'video'
   const [potholes, setPotholes] = useState([]);
   const [stats, setStats] = useState(null);
@@ -30,12 +36,22 @@ export default function App() {
   const [filterSeverity, setFilterSeverity] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterAuthority, setFilterAuthority] = useState('all');
+  const [filterMyReportsOnly, setFilterMyReportsOnly] = useState(false);
+
+  // Automatically transition view on auth state changes
+  useEffect(() => {
+    if (isAuthenticated) {
+      setActiveTab(prev => (prev === 'landing' ? 'dashboard' : prev));
+    } else {
+      setActiveTab('landing');
+    }
+  }, [isAuthenticated]);
 
   const loadData = async () => {
     try {
       const [potholesData, statsData, authData, healthData] = await Promise.all([
         fetchPotholes(),
-        fetchPotholeStats(),  
+        fetchPotholeStats(),
         fetchAuthorities(),
         checkServerHealth()
       ]);
@@ -56,6 +72,10 @@ export default function App() {
   }, []);
 
   const handleSelectModeFromLanding = (mode) => {
+    if (!isAuthenticated) {
+      openAuthModal('login', 'citizen');
+      return;
+    }
     setReportMode(mode);
     setActiveTab('wizard');
   };
@@ -76,6 +96,11 @@ export default function App() {
     setActiveTab('map');
   };
 
+  const handleFilterMyReports = (userId) => {
+    setFilterMyReportsOnly(true);
+    setActiveTab('list');
+  };
+
   return (
     <div className="app-container">
       {/* Official Government of India Header & Navbar */}
@@ -84,16 +109,35 @@ export default function App() {
         setActiveTab={setActiveTab}
         serverHealth={serverHealth}
         onOpenDirectory={() => setActiveTab('authorities')}
+        onFilterMyReports={handleFilterMyReports}
       />
 
       {/* Main Content Viewport */}
       <main className="main-content">
-        {/* FIRST PAGE: Clean Landing Page */}
+        {/* PUBLIC VIEW: Clean Landing Page for Understanding the Project */}
         {activeTab === 'landing' && (
           <LandingPage
             onSelectMode={handleSelectModeFromLanding}
-            onViewMap={() => setActiveTab('map')}
+            onViewMap={() => {
+              if (!isAuthenticated) {
+                openAuthModal('login', 'citizen');
+              } else {
+                setActiveTab('map');
+              }
+            }}
+            onNavigateDashboard={() => setActiveTab('dashboard')}
             stats={stats}
+          />
+        )}
+
+        {/* AUTHENTICATED VIEW: Central Command Dashboard */}
+        {activeTab === 'dashboard' && (
+          <DashboardOverview
+            stats={stats}
+            potholes={potholes}
+            onNavigateTab={setActiveTab}
+            onSelectPothole={setSelectedPothole}
+            onSelectReportMode={setReportMode}
           />
         )}
 
@@ -103,7 +147,7 @@ export default function App() {
             initialMode={reportMode}
             onPotholeCreated={handlePotholeCreated}
             onViewOnMap={handleJumpToMap}
-            onBackHome={() => setActiveTab('landing')}
+            onBackHome={() => setActiveTab(isAuthenticated ? 'dashboard' : 'landing')}
           />
         )}
 
@@ -123,7 +167,7 @@ export default function App() {
           />
         )}
 
-        {/* TAB 3: Incidents Directory */}
+        {/* TAB 3: Incidents & Work Orders Directory */}
         {activeTab === 'list' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <StatsBar stats={stats} />
@@ -137,6 +181,8 @@ export default function App() {
               setFilterStatus={setFilterStatus}
               filterAuthority={filterAuthority}
               setFilterAuthority={setFilterAuthority}
+              filterMyReportsOnly={filterMyReportsOnly}
+              setFilterMyReportsOnly={setFilterMyReportsOnly}
             />
           </div>
         )}
@@ -169,6 +215,14 @@ export default function App() {
           onUpdated={handlePotholeUpdated}
         />
       )}
+
+      {/* Authentication Modal */}
+      <AuthModal
+        isOpen={authModalState.isOpen}
+        onClose={closeAuthModal}
+        initialTab={authModalState.initialTab}
+        initialRole={authModalState.initialRole}
+      />
 
       {/* Official Government of India Web Footer (GIGW) */}
       <GovFooter />

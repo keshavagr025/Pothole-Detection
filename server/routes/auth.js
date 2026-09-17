@@ -192,6 +192,22 @@ router.get('/demo-accounts', (req, res) => {
         password: 'password123',
         description: 'Municipal Corporation officer handling local colony and sector roads.',
         badge: 'MCD Inspector'
+      },
+      {
+        label: 'NDMC Lutyens Chief Engineer',
+        role: 'officer',
+        email: 'deepak.mehra@ndmc.gov.in',
+        password: 'password123',
+        description: 'New Delhi Municipal Council nodal engineer for central VIP corridors.',
+        badge: 'NDMC Chief Eng.'
+      },
+      {
+        label: 'National Safety Admin',
+        role: 'admin',
+        email: 'admin@morth.gov.in',
+        password: 'adminpassword123',
+        description: 'Ministry of Road Transport & Highways central surveillance command.',
+        badge: 'MoRTH Admin'
       }
     ]
   });

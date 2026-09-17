@@ -105,120 +105,211 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
               maxWidth: '100%'
             }}
           >
-            <button
-              type="button"
-              onClick={() => setActiveTab('landing')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: 6,
-                border: 'none',
-                background: activeTab === 'landing' ? '#ffffff' : 'transparent',
-                color: activeTab === 'landing' ? '#002147' : 'var(--text-secondary)',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'landing' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
-              }}
-            >
-              <Home size={14} />
-              गृह • Portal Home
-            </button>
+            {!isAuthenticated ? (
+              /* Public / Guest Navigation for Project Understanding */
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab('landing');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'landing' ? '#ffffff' : 'transparent',
+                    color: activeTab === 'landing' ? '#002147' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'landing' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  <Home size={14} />
+                  पोर्टल परिचय • Overview
+                </button>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab('wizard')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.95rem',
-                borderRadius: 6,
-                border: 'none',
-                background: activeTab === 'wizard' ? '#ea580c' : 'transparent',
-                color: activeTab === 'wizard' ? '#ffffff' : 'var(--text-secondary)',
-                fontWeight: 800,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'wizard' ? '0 2px 6px rgba(234, 88, 12, 0.3)' : 'none'
-              }}
-            >
-              <Sparkles size={14} />
-              सड़क दोष रिपोर्ट • Report Pothole
-            </button>
+                <a
+                  href="#tech-architecture"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    color: 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <Sparkles size={14} color="#ea580c" />
+                  AI तकनीक • YOLOv8 Tech
+                </a>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab('map')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: 6,
-                border: 'none',
-                background: activeTab === 'map' ? '#002147' : 'transparent',
-                color: activeTab === 'map' ? '#ffffff' : 'var(--text-secondary)',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'map' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
-              }}
-            >
-              <Map size={14} />
-              जीआईएस मानचित्र • GIS Map
-            </button>
+                <a
+                  href="#national-impact"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    color: 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <BarChart3 size={14} color="#002147" />
+                  राष्ट्रीय आवश्यकता • Impact
+                </a>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab('list')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: 6,
-                border: 'none',
-                background: activeTab === 'list' ? '#002147' : 'transparent',
-                color: activeTab === 'list' ? '#ffffff' : 'var(--text-secondary)',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'list' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
-              }}
-            >
-              <ListFilter size={14} />
-              शिकायत पंजिका • Grievances
-            </button>
+                <a
+                  href="#portal-faqs"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    color: 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <CheckCircle2 size={14} color="#16a34a" />
+                  सामान्य प्रश्न • FAQs
+                </a>
+              </>
+            ) : (
+              /* Authenticated Operational Tools Navigation */
+              <>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('dashboard')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'dashboard' ? '#002147' : 'transparent',
+                    color: activeTab === 'dashboard' ? '#ffffff' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'dashboard' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  <Home size={14} />
+                  मुख्य डैशबोर्ड • Dashboard
+                </button>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab('analytics')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: 6,
-                border: 'none',
-                background: activeTab === 'analytics' ? '#002147' : 'transparent',
-                color: activeTab === 'analytics' ? '#ffffff' : 'var(--text-secondary)',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'analytics' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
-              }}
-            >
-              <BarChart3 size={14} />
-              राष्ट्रीय प्रगति • National KPIs
-            </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('wizard')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.95rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'wizard' ? '#ea580c' : 'transparent',
+                    color: activeTab === 'wizard' ? '#ffffff' : 'var(--text-secondary)',
+                    fontWeight: 800,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'wizard' ? '0 2px 6px rgba(234, 88, 12, 0.3)' : 'none'
+                  }}
+                >
+                  <Sparkles size={14} />
+                  सड़क दोष रिपोर्ट • Report Pothole
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('map')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'map' ? '#002147' : 'transparent',
+                    color: activeTab === 'map' ? '#ffffff' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'map' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  <Map size={14} />
+                  जीआईएस मानचित्र • GIS Map
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('list')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'list' ? '#002147' : 'transparent',
+                    color: activeTab === 'list' ? '#ffffff' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'list' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  <ListFilter size={14} />
+                  शिकायत पंजिका • Grievances
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('analytics')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 6,
+                    border: 'none',
+                    background: activeTab === 'analytics' ? '#002147' : 'transparent',
+                    color: activeTab === 'analytics' ? '#ffffff' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxShadow: activeTab === 'analytics' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  <BarChart3 size={14} />
+                  राष्ट्रीय प्रगति • National KPIs
+                </button>
+              </>
+            )}
           </nav>
 
           {/* Right Status Badge & User Auth & Directory triggers */}
