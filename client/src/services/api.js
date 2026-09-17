@@ -3,8 +3,17 @@
  */
 import axios from 'axios';
 
-const API_BASE = '/api/potholes';
-const AUTH_BASE = '/api/auth';
+export const SERVER_URL = import.meta.env.VITE_API_URL || '';
+const API_BASE = `${SERVER_URL}/api/potholes`;
+const AUTH_BASE = `${SERVER_URL}/api/auth`;
+
+export function getMediaUrl(relativeUrl) {
+  if (!relativeUrl) return '';
+  if (relativeUrl.startsWith('http://') || relativeUrl.startsWith('https://') || relativeUrl.startsWith('blob:') || relativeUrl.startsWith('data:')) {
+    return relativeUrl;
+  }
+  return `${SERVER_URL}${relativeUrl}`;
+}
 
 // Attach authorization token to all outgoing requests if available
 axios.interceptors.request.use((config) => {
