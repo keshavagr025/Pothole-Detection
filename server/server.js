@@ -1,5 +1,13 @@
 require('dotenv').config();
 
+const dns = require('dns');
+try {
+  // Use public DNS to resolve MongoDB Atlas SRV records without Windows ISP ECONNREFUSED issues
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (e) {
+  // Fallback to system default DNS
+}
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
