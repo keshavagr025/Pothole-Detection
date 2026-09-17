@@ -1,3 +1,5 @@
+<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/60bb2693-28c5-4a67-8c6a-8c4d3c3ea072" />
+
 # MĀRG-DRISHTI • National Road Distress Surveillance Portal (PotholeAI)
 
 An end-to-end full-stack platform that detects potholes and road distress from dashcam footage, video clips, and mobile camera feeds using computer vision (YOLOv8). It automatically tags exact GPS coordinates with multi-factor severity estimates, maps the responsible civic authority (**NHAI**, **PWD Delhi**, **MCD South/Central/North**, **NDMC**, **MoRTH**), dispatches automated tickets with SLAs, and manages the entire resolution lifecycle through a modern role-based operational command portal.
