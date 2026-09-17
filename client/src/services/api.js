@@ -4,7 +4,20 @@
 import axios from 'axios';
 
 const API_BASE = '/api/potholes';
+const AUTH_BASE = '/api/auth';
 
+// Attach authorization token to all outgoing requests if available
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('marg_auth_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
+// Pothole APIs
 export async function fetchPotholes(params = {}) {
   const res = await axios.get(API_BASE, { params });
   return res.data;
@@ -51,6 +64,32 @@ export async function fetchRecentDispatches() {
 
 export async function fetchAuthorities() {
   const res = await axios.get(`${API_BASE}/authorities`);
+  return res.data;
+}
+
+// Authentication APIs
+export async function loginUser(credentials) {
+  const res = await axios.post(`${AUTH_BASE}/login`, credentials);
+  return res.data;
+}
+
+export async function registerUser(userData) {
+  const res = await axios.post(`${AUTH_BASE}/register`, userData);
+  return res.data;
+}
+
+export async function getAuthProfile() {
+  const res = await axios.get(`${AUTH_BASE}/me`);
+  return res.data;
+}
+
+export async function updateAuthProfile(profileData) {
+  const res = await axios.patch(`${AUTH_BASE}/profile`, profileData);
+  return res.data;
+}
+
+export async function fetchDemoAccounts() {
+  const res = await axios.get(`${AUTH_BASE}/demo-accounts`);
   return res.data;
 }
 

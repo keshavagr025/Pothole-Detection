@@ -1,9 +1,41 @@
-import React from 'react';
-import { ShieldAlert, Map, Sparkles, ListFilter, BarChart3, Home, Building2, CheckCircle2, Shield } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import {
+  ShieldAlert,
+  Map,
+  Sparkles,
+  ListFilter,
+  BarChart3,
+  Home,
+  Building2,
+  CheckCircle2,
+  Shield,
+  LogIn,
+  User,
+  LogOut,
+  ChevronDown,
+  Award,
+  BadgeCheck,
+  FileText
+} from 'lucide-react';
 import GovHeader from './GovHeader';
+import { useAuth } from '../context/AuthContext';
 
-export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDirectory }) {
+export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDirectory, onFilterMyReports }) {
   const isHealthy = serverHealth?.status === 'healthy';
+  const { user, isAuthenticated, isOfficer, logout, openAuthModal } = useAuth();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -189,7 +221,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
             </button>
           </nav>
 
-          {/* Right Status Badge & Directory trigger */}
+          {/* Right Status Badge & User Auth & Directory triggers */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
             {onOpenDirectory && (
               <button
@@ -207,10 +239,271 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                 title="View NHAI, PWD, Municipal Directory &amp; Nodal Officers"
               >
                 <Building2 size={13} color="#002147" />
-                <span className="hide-on-mobile">नोडल निर्देशिका • Directory</span>
+                <span className="hide-on-mobile">निर्देशिका • Directory</span>
               </button>
             )}
 
+            {/* Authentication Button / User Profile Dropdown */}
+            {!isAuthenticated ? (
+              <button
+                type="button"
+                onClick={() => openAuthModal('login', 'citizen')}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 6,
+                  border: '1px solid #002147',
+                  background: '#002147',
+                  color: '#ffffff',
+                  fontSize: '0.75rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 5px rgba(0, 33, 71, 0.2)',
+                  transition: 'all 0.15s'
+                }}
+                title="Citizen &amp; Civic Officer Sign In"
+              >
+                <LogIn size={13} />
+                <span>प्रवेश • Sign In</span>
+              </button>
+            ) : (
+              <div style={{ position: 'relative' }} ref={dropdownRef}>
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    padding: '0.28rem 0.65rem',
+                    borderRadius: 20,
+                    border: isOfficer ? '1px solid #ea580c' : '1px solid #002147',
+                    background: isOfficer ? '#fff7ed' : '#f0f9ff',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s'
+                  }}
+                  title={`Logged in as ${user.name}`}
+                >
+                  <div style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: '50%',
+                    background: isOfficer ? '#ea580c' : '#002147',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '0.7rem',
+                    fontWeight: 800
+                  }}>
+                    {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                  </div>
+
+                  <div style={{ textAlign: 'left', lineHeight: 1.1 }}>
+                    <span style={{
+                      display: 'block',
+                      fontSize: '0.74rem',
+                      fontWeight: 800,
+                      color: '#002147',
+                      maxWidth: 120,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {user.name}
+                    </span>
+                    <span style={{
+                      display: 'block',
+                      fontSize: '0.62rem',
+                      fontWeight: 700,
+                      color: isOfficer ? '#ea580c' : '#0284c7'
+                    }}>
+                      {isOfficer ? 'Civic Officer' : `Citizen • ${user.reputationPoints || 25} pts`}
+                    </span>
+                  </div>
+
+                  <ChevronDown size={13} color="#64748b" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {dropdownOpen && (
+                  <div style={{
+                    position: 'absolute',
+                    top: 'calc(100% + 6px)',
+                    right: 0,
+                    width: 260,
+                    background: '#ffffff',
+                    borderRadius: 10,
+                    boxShadow: '0 10px 25px -5px rgba(0, 33, 71, 0.2), 0 0 0 1px rgba(0, 33, 71, 0.08)',
+                    padding: '0.75rem',
+                    zIndex: 1001,
+                    animation: 'fadeIn 0.15s ease-out'
+                  }}>
+                    {/* User Header Profile */}
+                    <div style={{
+                      paddingBottom: '0.65rem',
+                      borderBottom: '1px solid #e2e8f0',
+                      marginBottom: '0.5rem'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <div style={{
+                          width: 34,
+                          height: 34,
+                          borderRadius: '50%',
+                          background: isOfficer ? '#ea580c' : '#002147',
+                          color: '#ffffff',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontWeight: 800,
+                          fontSize: '0.9rem'
+                        }}>
+                          {user.name?.charAt(0).toUpperCase()}
+                        </div>
+                        <div style={{ overflow: 'hidden' }}>
+                          <p style={{ margin: 0, fontSize: '0.82rem', fontWeight: 800, color: '#002147', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {user.name}
+                          </p>
+                          <p style={{ margin: 0, fontSize: '0.7rem', color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {user.email}
+                          </p>
+                        </div>
+                      </div>
+
+                      {user.department && (
+                        <div style={{
+                          marginTop: '0.45rem',
+                          background: '#f8fafc',
+                          padding: '0.3rem 0.5rem',
+                          borderRadius: 6,
+                          fontSize: '0.68rem',
+                          color: '#334155',
+                          fontWeight: 600,
+                          border: '1px solid #e2e8f0'
+                        }}>
+                          🏛️ {user.department} {user.badgeNumber ? `(#${user.badgeNumber})` : ''}
+                        </div>
+                      )}
+
+                      {!isOfficer && (
+                        <div style={{
+                          marginTop: '0.45rem',
+                          background: '#fffbeb',
+                          padding: '0.3rem 0.5rem',
+                          borderRadius: 6,
+                          fontSize: '0.68rem',
+                          color: '#92400e',
+                          fontWeight: 700,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          border: '1px solid #fef3c7'
+                        }}>
+                          <Award size={13} color="#b45309" />
+                          <span>Civic Credits: {user.reputationPoints || 25} pts</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Menu Actions */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          if (onFilterMyReports) {
+                            onFilterMyReports(user._id || user.email);
+                          }
+                          setActiveTab('list');
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          padding: '0.45rem 0.6rem',
+                          borderRadius: 6,
+                          border: 'none',
+                          background: 'transparent',
+                          color: '#002147',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                          transition: 'background 0.15s'
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#f1f5f9'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                      >
+                        <FileText size={14} color="#002147" />
+                        <span>मेरी शिकायतें • My Grievances</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          setActiveTab('wizard');
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          padding: '0.45rem 0.6rem',
+                          borderRadius: 6,
+                          border: 'none',
+                          background: 'transparent',
+                          color: '#002147',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                          transition: 'background 0.15s'
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#f1f5f9'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                      >
+                        <Sparkles size={14} color="#ea580c" />
+                        <span>सड़क दोष दर्ज करें • Report Defect</span>
+                      </button>
+
+                      <div style={{ height: 1, background: '#e2e8f0', margin: '0.35rem 0' }} />
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          logout();
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          padding: '0.45rem 0.6rem',
+                          borderRadius: 6,
+                          border: 'none',
+                          background: 'transparent',
+                          color: '#dc2626',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                          transition: 'background 0.15s'
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#fef2f2'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                      >
+                        <LogOut size={14} color="#dc2626" />
+                        <span>लॉगआउट • Sign Out</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* YOLOv8 System Indicator */}
             <div style={{
               display: 'flex',
               alignItems: 'center',

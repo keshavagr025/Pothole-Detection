@@ -23,11 +23,16 @@ import {
   Award,
   Zap,
   HelpCircle,
-  ChevronDown
+  ChevronDown,
+  LogIn,
+  UserCheck,
+  Shield
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function LandingPage({ onSelectMode, onViewMap, stats }) {
   const [openFaq, setOpenFaq] = useState(null);
+  const { user, isAuthenticated, isOfficer, openAuthModal } = useAuth();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -313,8 +318,107 @@ export default function LandingPage({ onSelectMode, onViewMap, stats }) {
           </div>
         </div>
 
+        {/* Authentication & Portal Role Access Banner */}
+        <div style={{
+          marginTop: '2rem',
+          width: '100%',
+          maxWidth: 960,
+          background: '#ffffff',
+          borderRadius: 14,
+          border: '1px solid #e2e8f0',
+          padding: '1rem 1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1rem',
+          boxShadow: '0 4px 6px -1px rgba(0,0,0,0.04)'
+        }}>
+          {!isAuthenticated ? (
+            <>
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <Shield size={16} color="#002147" />
+                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>
+                    Citizen &amp; Civic Officer Access Portal
+                  </span>
+                </div>
+                <p style={{ margin: '0.2rem 0 0', fontSize: '0.75rem', color: '#64748b' }}>
+                  Sign in to track your reported road complaints, earn civic points, or manage NHAI / PWD departmental work orders.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={() => openAuthModal('login', 'citizen')}
+                  className="btn btn-secondary btn-sm"
+                  style={{ fontWeight: 700 }}
+                >
+                  <LogIn size={13} />
+                  नागरिक प्रवेश • Citizen Login
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openAuthModal('login', 'officer')}
+                  className="btn btn-primary btn-sm"
+                  style={{ background: '#002147', borderColor: '#002147', fontWeight: 700 }}
+                >
+                  <Building2 size={13} />
+                  अधिकारी लॉगिन • Officer Portal
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textAlign: 'left' }}>
+                <div style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: '50%',
+                  background: isOfficer ? '#ea580c' : '#002147',
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 800,
+                  fontSize: '0.95rem'
+                }}>
+                  {user.name?.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>
+                    Welcome, {user.name}
+                  </span>
+                  <p style={{ margin: 0, fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
+                    {isOfficer ? `🏛️ ${user.department || 'Civic Authority Officer'}` : `🌟 Citizen Sentinel • ${user.reputationPoints || 25} Civic Reputation Credits`}
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <span style={{
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 20,
+                  background: '#f0fdf4',
+                  color: '#166534',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  border: '1px solid #bbf7d0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.35rem'
+                }}>
+                  <UserCheck size={14} />
+                  Authenticated Session Active
+                </span>
+              </div>
+            </>
+          )}
+        </div>
+
         {/* Live Map Link */}
-        <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Looking for existing hazard incidents?</span>
           <button
             type="button"

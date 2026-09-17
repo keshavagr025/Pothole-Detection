@@ -7,7 +7,9 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 
 const potholeRoutes = require('./routes/potholes');
+const authRoutes = require('./routes/auth');
 const { Pothole } = require('./models/Pothole');
+const { User } = require('./models/User');
 const { SEED_POTHOLES } = require('./data/seedData');
 
 const app = express();
@@ -50,6 +52,7 @@ app.use('/uploads', express.static(uploadsDir, {
 
 // API Routes
 app.use('/api/potholes', potholeRoutes);
+app.use('/api/auth', authRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -66,6 +69,7 @@ app.get('/api/health', (req, res) => {
 async function initializeData() {
   try {
     await Pothole.seedInitialData(SEED_POTHOLES);
+    await User.seedInitialUsers();
   } catch (err) {
     console.error('[Database] Failed to seed initial data:', err.message);
   }

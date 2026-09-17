@@ -9,6 +9,8 @@ const path = require('path');
 const fs = require('fs');
 
 const { Pothole } = require('../models/Pothole');
+const { User } = require('../models/User');
+const { optionalAuth } = require('../middleware/auth');
 const { detectPotholes } = require('../services/aiDetectionService');
 const { resolveAuthority, CIVIC_AUTHORITIES } = require('../services/authorityMapper');
 const { dispatchCivicReport, getRecentDispatches } = require('../services/notificationService');
@@ -39,7 +41,7 @@ const upload = multer({
  * @route POST /api/potholes/detect
  * @desc Process dashcam/mobile image, detect potholes with AI, map authority, save & dispatch
  */
-router.post('/detect', upload.single('image'), async (req, res) => {
+router.post('/detect', optionalAuth, upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No image file uploaded' });
@@ -52,7 +54,9 @@ router.post('/detect', upload.single('image'), async (req, res) => {
       roadHint = '',
       landmark = '',
       vehicleSpeed = null,
-      confidenceThreshold = 0.20
+      confidenceThreshold = 0.20,
+      reporterName = '',
+      reporterEmail = ''
     } = req.body;
 
     const lat = parseFloat(latitude);
@@ -76,6 +80,19 @@ router.post('/detect', upload.single('image'), async (req, res) => {
 
     const originalUrl = `/uploads/${req.file.filename}`;
     const annotatedUrl = `/uploads/${aiResult.annotatedFilename}`;
+
+    // Determine reporter identity (from JWT or form body or default citizen)
+    const reportedBy = req.user ? {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      role: req.user.role
+    } : {
+      id: reporterEmail || 'anonymous_citizen',
+      name: reporterName || 'Civic Road Reporter',
+      email: reporterEmail || 'citizen@anonymous.nic.in',
+      role: 'citizen'
+    };
 
     // 4. Construct Pothole Record
     const potholeDoc = {
@@ -114,6 +131,7 @@ router.post('/detect', upload.single('image'), async (req, res) => {
         escalationSLA: authority.escalationSLA,
         jurisdictionReason
       },
+      reportedBy,
       status: 'Reported',
       source,
       reportedAt: new Date()
@@ -121,6 +139,11 @@ router.post('/detect', upload.single('image'), async (req, res) => {
 
     // 5. Persist Record
     const savedPothole = await Pothole.create(potholeDoc);
+
+    // Reward citizen with civic reputation points if logged in
+    if (req.user && req.user._id) {
+      await User.addReputation(req.user._id, 15).catch(() => {});
+    }
 
     // 6. Automatically dispatch notification to civic authority
     const dispatchNotice = await dispatchCivicReport(savedPothole);
@@ -144,12 +167,13 @@ router.post('/detect', upload.single('image'), async (req, res) => {
  */
 router.get('/', async (req, res) => {
   try {
-    const { status, severity, authority, search } = req.query;
+    const { status, severity, authority, search, reportedBy } = req.query;
     const filter = {};
 
     if (status && status !== 'all') filter.status = status;
     if (severity && severity !== 'all') filter.severity = severity;
     if (authority && authority !== 'all') filter['assignedAuthority.id'] = authority;
+    if (reportedBy && reportedBy !== 'all') filter['reportedBy.id'] = reportedBy;
     if (search) filter.search = search;
 
     const potholes = await Pothole.find(filter);
@@ -210,7 +234,7 @@ router.get('/:id', async (req, res) => {
  * @route PATCH /api/potholes/:id/status
  * @desc Update pothole resolution status (Reported -> Acknowledged -> In Progress -> Resolved)
  */
-router.patch('/:id/status', upload.single('proofImage'), async (req, res) => {
+router.patch('/:id/status', optionalAuth, upload.single('proofImage'), async (req, res) => {
   try {
     const { status, notes, updatedBy } = req.body;
     let proofImageUrl = null;
@@ -223,11 +247,20 @@ router.patch('/:id/status', upload.single('proofImage'), async (req, res) => {
       return res.status(400).json({ error: 'Invalid status value' });
     }
 
+    let updaterName = updatedBy;
+    if (req.user) {
+      updaterName = req.user.department
+        ? `${req.user.name} (${req.user.department}${req.user.badgeNumber ? ` #${req.user.badgeNumber}` : ''})`
+        : `${req.user.name} (${req.user.role.toUpperCase()})`;
+    } else if (!updaterName) {
+      updaterName = 'Civic Authority Executive';
+    }
+
     const updated = await Pothole.updateStatus(
       req.params.id,
       status,
       notes,
-      updatedBy || 'Civic Authority Executive',
+      updaterName,
       proofImageUrl
     );
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   MapPin,
@@ -13,23 +13,45 @@ import {
   Shield,
   Upload,
   Layers,
-  Printer
+  Printer,
+  User,
+  LogIn
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { updatePotholeStatus } from '../services/api';
 import OfficialFormVIIModal from './OfficialFormVIIModal';
+import { useAuth } from '../context/AuthContext';
 
 export default function TicketDetailModal({ pothole, onClose, onUpdated }) {
   if (!pothole) return null;
+
+  const { user, isAuthenticated, isOfficer, openAuthModal } = useAuth();
 
   const [showFormVII, setShowFormVII] = useState(false);
   const [activeImageTab, setActiveImageTab] = useState('annotated'); // 'annotated' | 'original' | 'resolved'
   const [newStatus, setNewStatus] = useState(pothole.status);
   const [officerNotes, setOfficerNotes] = useState('');
-  const [officerName, setOfficerName] = useState('Assistant Engineer (Road Maintenance)');
+  const [officerName, setOfficerName] = useState(() => {
+    if (user) {
+      return user.department
+        ? `${user.name} (${user.department})`
+        : `${user.name} (${user.role.toUpperCase()})`;
+    }
+    return 'Assistant Engineer (Road Maintenance)';
+  });
   const [proofFile, setProofFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      setOfficerName(
+        user.department
+          ? `${user.name} (${user.department}${user.badgeNumber ? ` #${user.badgeNumber}` : ''})`
+          : `${user.name} (${user.role.toUpperCase()})`
+      );
+    }
+  }, [user]);
 
   const lat = pothole.location?.coordinates?.[1];
   const lng = pothole.location?.coordinates?.[0];

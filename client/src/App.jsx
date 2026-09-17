@@ -35,7 +35,7 @@ export default function App() {
     try {
       const [potholesData, statsData, authData, healthData] = await Promise.all([
         fetchPotholes(),
-        fetchPotholeStats(),
+        fetchPotholeStats(),  
         fetchAuthorities(),
         checkServerHealth()
       ]);

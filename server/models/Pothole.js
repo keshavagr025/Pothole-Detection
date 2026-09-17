@@ -114,6 +114,12 @@ const PotholeSchema = new mongoose.Schema({
       proofImage: String
     }
   ],
+  reportedBy: {
+    id: String,
+    name: String,
+    email: String,
+    role: String
+  },
   source: {
     type: String,
     enum: ['dashcam', 'mobile_camera', 'citizen_upload', 'drone_survey'],
@@ -201,6 +207,9 @@ class PotholeRepository {
       }
       if (filter['assignedAuthority.id']) {
         items = items.filter(item => item.assignedAuthority && item.assignedAuthority.id === filter['assignedAuthority.id']);
+      }
+      if (filter['reportedBy.id']) {
+        items = items.filter(item => item.reportedBy && (item.reportedBy.id === filter['reportedBy.id'] || item.reportedBy.email === filter['reportedBy.id']));
       }
       if (filter.$text || filter.search) {
         const query = (filter.search || '').toLowerCase();
