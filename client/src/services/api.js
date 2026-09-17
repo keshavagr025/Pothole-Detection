@@ -148,7 +148,7 @@ export async function reverseGeocodeCoords(lat, lng) {
 
 export async function checkServerHealth() {
   try {
-    const res = await axios.get('/api/health');
+    const res = await axios.get(`${SERVER_URL}/api/health`);
     return res.data;
   } catch (err) {
     return { status: 'offline', error: err.message };
