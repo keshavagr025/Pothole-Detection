@@ -223,5 +223,20 @@
     "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=120&auto=format&fit=crop&q=80",
     "createdAt": "2026-09-17T17:17:49.281Z",
     "updatedAt": "2026-09-17T17:17:49.281Z"
+  },
+  {
+    "_id": "6aac22950e01de3e6c282e25",
+    "name": "Seth DhanRaj",
+    "email": "dhanraj@example.com",
+    "password": "$2b$10$NhaumJqiTjL/G0wCN4OZPO85fA.QJnGGD1JYgRr4i9N03TawYAR2W",
+    "role": "citizen",
+    "phone": "",
+    "department": "",
+    "badgeNumber": "",
+    "jurisdiction": "",
+    "reputationPoints": 25,
+    "avatar": "",
+    "createdAt": "2026-09-17T17:25:41.941Z",
+    "updatedAt": "2026-09-17T17:25:41.941Z"
   }
 ]
