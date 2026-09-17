@@ -54,6 +54,19 @@ An end-to-end full-stack platform that detects potholes and road distress from d
 
 ---
 
+## 🛣️ Real-World Civil & AI Engineering Challenges
+
+This platform is engineered to tackle real-world urban road conditions:
+- **Monsoon Waterlogged Puddle vs. Deep Crater Occlusion**: Edge specular gradient profiling to spot submerged vehicle-damaging pits.
+- **Tree Canopy & Flyover Sunlight Shadow Filtering**: Structural texture convolution to eliminate false positive shadow alarms.
+- **Jurisdictional Boundary Auto-Resolution**: Eliminates bureaucratic buck-passing between **NHAI**, **PWD Delhi**, **MCD**, and **NDMC**.
+- **Cold-Mix Substandard Repair Recurrence Audits**: 90-day spatial clustering to detect washed-away contractor asphalt patches.
+- **Two-Wheeler Skid Risk Weighting & Dynamic SLAs**: Automatic 12h emergency notices on high-speed motorcycle corridors.
+
+👉 Read the complete technical breakdown in [REAL_WORLD_CHALLENGES_AND_ISSUES.md](REAL_WORLD_CHALLENGES_AND_ISSUES.md).
+
+---
+
 ## 📂 Project Structure
 
 ```

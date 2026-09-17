@@ -1,0 +1,36 @@
+name: 🏛️ Civic Jurisdiction & Boundary Conflict
+description: Report an issue where a road defect was misassigned or disputed between civic bodies (NHAI, PWD, MCD, NDMC).
+title: "[CIVIC CONFLICT]: "
+labels: ["civic-governance", "geo-mapping", "authority-routing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Municipal Authority Boundary Dispute
+        Use this template when a road defect is disputed between departments (e.g., Highway Main Carriageway vs Municipal Service Lane).
+  - type: dropdown
+    id: disputed_authorities
+    attributes:
+      label: Disputed Authorities
+      options:
+        - "NHAI (National Highway) vs PWD (State Road / Service Lane)"
+        - "PWD (>60ft Road) vs MCD (Colony Feeder Street)"
+        - "NDMC (Lutyens' Delhi) vs MCD (Central Zone Border)"
+        - "DDA (Flyover / Underpass Ramp) vs PWD"
+        - "Railway Overbridge (ROB) vs Municipal Corporation"
+    validations:
+      required: true
+  - type: input
+    id: road_name
+    attributes:
+      label: Road Segment Name & Landmark
+      placeholder: "e.g., Ashram Flyover Descent connecting Ring Road to Mathura Road"
+    validations:
+      required: true
+  - type: textarea
+    id: dispute_reason
+    attributes:
+      label: Reason for Jurisdiction Discrepancy
+      placeholder: "Explain why the automated GIS rule assigned Authority A when Authority B is legally responsible for maintenance."
+    validations:
+      required: true

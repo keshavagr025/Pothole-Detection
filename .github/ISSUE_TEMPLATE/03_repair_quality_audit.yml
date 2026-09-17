@@ -1,0 +1,36 @@
+name: 🛠️ Pothole Repair Re-verification & Quality Failure
+description: Report a road repair where the patch washed away, sank, or a fraudulent resolution photo was uploaded.
+title: "[QUALITY AUDIT FAIL]: "
+labels: ["repair-audit", "quality-control", "sla-breach"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Road Repair Quality Audit & SLA Non-Compliance Report
+        Use this template to flag substandard asphalt patching, contractor SLA breaches, or premature cavity recurrence.
+  - type: input
+    id: ticket_id
+    attributes:
+      label: Grievance / Ticket Tracking ID
+      placeholder: "e.g., POT-2025-000142"
+    validations:
+      required: true
+  - type: dropdown
+    id: failure_mode
+    attributes:
+      label: Nature of Quality Failure
+      options:
+        - "Cold-Mix Asphalt Washout After Rain (< 72h)"
+        - "Post-Repair Subsidence (Uneven Patch Causing Bump)"
+        - "Inadequate Edge Sealing (Water Infiltration)"
+        - "Disputed Resolution Proof (Contractor Photo Mismatch)"
+        - "SLA Target Exceeded (> 48 Hours Without Action)"
+    validations:
+      required: true
+  - type: textarea
+    id: audit_observations
+    attributes:
+      label: On-Site Inspection Observations
+      placeholder: "Provide field measurements, citizen re-complaint details, or contractor penalty recommendations."
+    validations:
+      required: true

@@ -1,0 +1,49 @@
+name: 🚗 Road Defect & AI CV Edge Case
+description: Report a real-world computer vision detection failure, false positive, or extreme road condition.
+title: "[CV EDGE-CASE]: "
+labels: ["ai-model", "computer-vision", "edge-case", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Real-World Road Distress & Computer Vision Anomaly Report
+        Use this template to report real-world visual edge cases encountered by dashcams or mobile camera feeds.
+  - type: dropdown
+    id: defect_category
+    attributes:
+      label: Real-World Visual Challenge
+      options:
+        - "Waterlogged Puddle Occlusion (Monsoon Reflections)"
+        - "Tree Canopy / High-Contrast Sunlight Shadows"
+        - "Nighttime Headlight Glare / Low-Light Noise"
+        - "Manhole Cover vs. Pothole Misclassification"
+        - "Speed Breaker / Rumble Strip False Positive"
+        - "Asphalt Bleeding / Road Surface Patch Distortion"
+        - "Motion Blur at High Speeds (> 70 km/h)"
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Road Corridor / GPS Location
+      placeholder: "e.g., NH-48 Express Highway (Gurugram Km 24.2) or Outer Ring Road"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Anomaly Description
+      placeholder: "Describe how the model reacted (e.g., missed bounding box, miscalculated severity %, or confidence dropped below threshold)."
+    validations:
+      required: true
+  - type: dropdown
+    id: severity_impact
+    attributes:
+      label: Real-World Safety Hazard Level
+      options:
+        - "Critical: Severe rollover/skid risk to two-wheelers & high-speed traffic"
+        - "High: Deep structural rutting requiring immediate barricading"
+        - "Medium: Surface asphalt fatigue / minor cavity"
+        - "Low: Superficial surface peeling"
+    validations:
+      required: true
