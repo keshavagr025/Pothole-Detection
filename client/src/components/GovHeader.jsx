@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Phone, Shield, ExternalLink, Globe, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
+export default function GovHeader() {
+  const { language, setLanguage, toggleLanguage, t, isHindi, isEnglish } = useLanguage();
   const [fontSize, setFontSize] = useState('normal');
 
   const handleFontSize = (size) => {
@@ -30,13 +32,19 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
       <div className="gov-top-bar">
         <div className="gov-container gov-top-bar-inner">
           <div className="gov-ministry-tag">
-            <span className="hindi-text">भारत सरकार</span>
-            <span className="divider">|</span>
-            <span>Government of India</span>
-            <span className="divider">•</span>
-            <span className="hindi-text">सड़क परिवहन एवं राजमार्ग मंत्रालय</span>
-            <span className="divider">|</span>
-            <span className="ministry-en">Ministry of Road Transport &amp; Highways (MoRTH)</span>
+            {isHindi ? (
+              <>
+                <span className="hindi-text">भारत सरकार</span>
+                <span className="divider">|</span>
+                <span className="hindi-text">सड़क परिवहन एवं राजमार्ग मंत्रालय (MoRTH)</span>
+              </>
+            ) : (
+              <>
+                <span>Government of India</span>
+                <span className="divider">|</span>
+                <span className="ministry-en">Ministry of Road Transport &amp; Highways (MoRTH)</span>
+              </>
+            )}
           </div>
 
           <div className="gov-top-actions">
@@ -44,11 +52,32 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
             <div className="gov-helpline-group">
               <a href="tel:1033" className="helpline-badge nhai-helpline" title="NHAI 24x7 Highway Emergency Helpline">
                 <Phone size={12} />
-                <span>NHAI 24x7: <strong>1033</strong></span>
+                <span>{isHindi ? 'एनएचएआई 24x7: ' : 'NHAI 24x7: '}<strong>1033</strong></span>
               </a>
               <a href="tel:1800110033" className="helpline-badge morth-helpline" title="MoRTH Grievance Toll-Free Desk">
-                <span>MoRTH Toll-Free: <strong>1800-11-0033</strong></span>
+                <span>{isHindi ? 'टोल-फ्री: ' : 'MoRTH Toll-Free: '}<strong>1800-11-0033</strong></span>
               </a>
+            </div>
+
+            {/* Language Switcher */}
+            <div className="gov-lang-switcher" title="Select Portal Language / पोर्टल की भाषा चुनें">
+              <button
+                type="button"
+                onClick={() => setLanguage('en')}
+                className={`gov-lang-btn ${isEnglish ? 'active' : ''}`}
+                aria-label="Switch to English"
+              >
+                English
+              </button>
+              <span className="lang-pipe">|</span>
+              <button
+                type="button"
+                onClick={() => setLanguage('hi')}
+                className={`gov-lang-btn ${isHindi ? 'active' : ''}`}
+                aria-label="Switch to Hindi"
+              >
+                हिन्दी
+              </button>
             </div>
 
             {/* Accessibility Controls */}
@@ -120,17 +149,22 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
 
             <div className="gov-title-block">
               <div className="gov-sub-heading">
-                <span className="hindi-badge">भारत सरकार का उपक्रम</span>
-                <span className="hierarchy-text">सड़क परिवहन और राजमार्ग मंत्रालय • MoRTH</span>
+                <span className="hindi-badge">{t('gov_initiative')}</span>
+                <span className="hierarchy-text">{t('morth_header')}</span>
               </div>
               <h1 className="gov-portal-heading">
-                मार्ग-दृष्टि <span className="en-portal-title">• MĀRG-DRISHTI</span>
+                {isHindi ? (
+                  <>
+                    मार्ग<span className="en-portal-title">-दृष्टि</span>
+                  </>
+                ) : (
+                  <>
+                    MĀRG<span className="en-portal-title">-DRISHTI</span>
+                  </>
+                )}
               </h1>
               <p className="gov-tagline">
-                राष्ट्रीय सड़क दोष पहचान, जीआईएस निगरानी एवं नागरिक शिकायत निवारण प्रणाली
-                <span className="tagline-sub">
-                  (National AI Road Distress Surveillance &amp; Statutory Pothole Redressal Portal)
-                </span>
+                {t('portal_tagline')}
               </p>
             </div>
           </div>
@@ -141,7 +175,7 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
               <div className="badge-bullet"></div>
               <div>
                 <span className="pill-title">PM Gati Shakti</span>
-                <span className="pill-sub">National Master Plan</span>
+                <span className="pill-sub">{isHindi ? 'राष्ट्रीय मास्टर प्लान' : 'National Master Plan'}</span>
               </div>
             </div>
 
@@ -149,7 +183,7 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
               <div className="badge-bullet green"></div>
               <div>
                 <span className="pill-title">Digital India</span>
-                <span className="pill-sub">Civic Tech Platform</span>
+                <span className="pill-sub">{isHindi ? 'नागरिक तकनीक मंच' : 'Civic Tech Platform'}</span>
               </div>
             </div>
 
@@ -157,7 +191,7 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
               <div className="badge-bullet blue"></div>
               <div>
                 <span className="pill-title">NHAI &amp; PWD</span>
-                <span className="pill-sub">IRC:SP:72 Standard</span>
+                <span className="pill-sub">{isHindi ? 'आईआरसी:एसपी:72 मानक' : 'IRC:SP:72 Standard'}</span>
               </div>
             </div>
 
@@ -165,7 +199,7 @@ export default function GovHeader({ onToggleLanguage, currentLang = 'en' }) {
               <Shield size={14} color="#0284c7" />
               <div>
                 <span className="pill-title">CPGRAMS</span>
-                <span className="pill-sub">SLA Enforced</span>
+                <span className="pill-sub">{isHindi ? 'समय-सीमा बाध्य' : 'SLA Enforced'}</span>
               </div>
             </div>
           </div>

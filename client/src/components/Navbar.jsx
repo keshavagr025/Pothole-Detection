@@ -19,10 +19,12 @@ import {
 } from 'lucide-react';
 import GovHeader from './GovHeader';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDirectory, onFilterMyReports }) {
   const isHealthy = serverHealth?.status === 'healthy';
   const { user, isAuthenticated, isOfficer, logout, openAuthModal } = useAuth();
+  const { t, isHindi } = useLanguage();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -39,7 +41,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
 
   return (
     <>
-      {/* 1. Official Government Top Header (Tiranga ribbon, Ashoka emblem, Helplines) */}
+      {/* 1. Official Government Top Header (Tiranga ribbon, Ashoka emblem, Helplines, Lang Toggle) */}
       <GovHeader />
 
       {/* 2. Primary Navigation Bar */}
@@ -86,10 +88,14 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
             </div>
             <div>
               <span style={{ fontSize: '1.05rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#002147' }}>
-                मार्ग<span style={{ color: '#ea580c' }}>-दृष्टि</span>
+                {isHindi ? (
+                  <>मार्ग<span style={{ color: '#ea580c' }}>-दृष्टि</span></>
+                ) : (
+                  <>MĀRG<span style={{ color: '#ea580c' }}>-DRISHTI</span></>
+                )}
               </span>
               <span style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                MoRTH • NHAI Portal
+                {isHindi ? 'सड़क परिवहन एवं राजमार्ग मंत्रालय' : 'MoRTH • NHAI Portal'}
               </span>
             </div>
           </div>
@@ -131,7 +137,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <Home size={14} />
-                  पोर्टल परिचय • Overview
+                  {t('nav_overview')}
                 </button>
 
                 <a
@@ -150,7 +156,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <Sparkles size={14} color="#ea580c" />
-                  AI तकनीक • YOLOv8 Tech
+                  {t('nav_ai_tech')}
                 </a>
 
                 <a
@@ -169,7 +175,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <BarChart3 size={14} color="#002147" />
-                  राष्ट्रीय आवश्यकता • Impact
+                  {t('nav_impact')}
                 </a>
 
                 <a
@@ -188,7 +194,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <CheckCircle2 size={14} color="#16a34a" />
-                  सामान्य प्रश्न • FAQs
+                  {t('nav_faqs')}
                 </a>
               </>
             ) : (
@@ -214,7 +220,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <Home size={14} />
-                  मुख्य डैशबोर्ड • Dashboard
+                  {t('nav_dashboard')}
                 </button>
 
                 <button
@@ -237,7 +243,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <Sparkles size={14} />
-                  सड़क दोष रिपोर्ट • Report Pothole
+                  {t('nav_report_pothole')}
                 </button>
 
                 <button
@@ -260,7 +266,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <Map size={14} />
-                  जीआईएस मानचित्र • GIS Map
+                  {t('nav_gis_map')}
                 </button>
 
                 <button
@@ -283,7 +289,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <ListFilter size={14} />
-                  शिकायत पंजिका • Grievances
+                  {t('nav_grievances')}
                 </button>
 
                 <button
@@ -306,7 +312,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                   }}
                 >
                   <BarChart3 size={14} />
-                  राष्ट्रीय प्रगति • National KPIs
+                  {t('nav_analytics')}
                 </button>
               </>
             )}
@@ -330,7 +336,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                 title="View NHAI, PWD, Municipal Directory &amp; Nodal Officers"
               >
                 <Building2 size={13} color="#002147" />
-                <span className="hide-on-mobile">निर्देशिका • Directory</span>
+                <span className="hide-on-mobile">{t('nav_directory')}</span>
               </button>
             )}
 
@@ -357,7 +363,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                 title="Citizen &amp; Civic Officer Sign In"
               >
                 <LogIn size={13} />
-                <span>प्रवेश • Sign In</span>
+                <span>{t('nav_sign_in')}</span>
               </button>
             ) : (
               <div style={{ position: 'relative' }} ref={dropdownRef}>
@@ -411,7 +417,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                       fontWeight: 700,
                       color: isOfficer ? '#ea580c' : '#0284c7'
                     }}>
-                      {isOfficer ? 'Civic Officer' : `Citizen • ${user.reputationPoints || 25} pts`}
+                      {isOfficer ? t('nav_civic_officer') : `${t('nav_citizen')} • ${user.reputationPoints || 25} ${t('nav_pts')}`}
                     </span>
                   </div>
 
@@ -493,7 +499,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                           border: '1px solid #fef3c7'
                         }}>
                           <Award size={13} color="#b45309" />
-                          <span>Civic Credits: {user.reputationPoints || 25} pts</span>
+                          <span>{t('nav_civic_credits')}: {user.reputationPoints || 25} {t('nav_pts')}</span>
                         </div>
                       )}
                     </div>
@@ -528,7 +534,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                       >
                         <FileText size={14} color="#002147" />
-                        <span>मेरी शिकायतें • My Grievances</span>
+                        <span>{t('nav_my_grievances')}</span>
                       </button>
 
                       <button
@@ -556,7 +562,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                       >
                         <Sparkles size={14} color="#ea580c" />
-                        <span>सड़क दोष दर्ज करें • Report Defect</span>
+                        <span>{t('nav_report_defect')}</span>
                       </button>
 
                       <div style={{ height: 1, background: '#e2e8f0', margin: '0.35rem 0' }} />
@@ -586,7 +592,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                       >
                         <LogOut size={14} color="#dc2626" />
-                        <span>लॉगआउट • Sign Out</span>
+                        <span>{t('nav_sign_out')}</span>
                       </button>
                     </div>
                   </div>
@@ -638,7 +644,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                 backgroundColor: isHealthy ? '#16a34a' : '#d97706'
               }} />
               <span style={{ color: isHealthy ? '#15803d' : '#b45309', fontWeight: 700 }}>
-                {isHealthy ? 'NIC Gateway Active' : 'Connecting'}
+                {isHealthy ? t('nav_nic_gateway') : t('nav_connecting')}
               </span>
             </div>
           </div>
