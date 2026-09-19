@@ -7,13 +7,27 @@ export default function GovFooter() {
 
   return (
     <footer className="gov-footer-wrapper">
-      {/* Upper Footer Links */}
+      {/* National Tiranga Accent Strip */}
+      <div className="tiranga-strip" title="National Flag Ribbon (Saffron, White, Green)">
+        <div className="strip-saffron"></div>
+        <div className="strip-white">
+          <div className="chakra-dot"></div>
+        </div>
+        <div className="strip-green"></div>
+      </div>
+
+      {/* Upper Footer Links with Highway Background */}
       <div className="gov-footer-top">
         <div className="gov-container gov-footer-grid">
           {/* Column 1: Ministry Particulars */}
           <div className="gov-footer-col">
             <div className="footer-logo-block">
-              <span className="footer-emblem-text">सत्यमेव जयते</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.3rem' }}>
+                <span className="hindi-badge" style={{ background: '#fef08a', color: '#854d0e', fontSize: '0.65rem' }}>
+                  भारत सरकार
+                </span>
+                <span className="footer-emblem-text">सत्यमेव जयते</span>
+              </div>
               <h4 className="footer-dept-title">
                 {isHindi ? 'सड़क परिवहन एवं राजमार्ग मंत्रालय' : 'Ministry of Road Transport & Highways'}
               </h4>
