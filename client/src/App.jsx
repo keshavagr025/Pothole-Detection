@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
 import DashboardOverview from './components/DashboardOverview';
-import StatsBar from './components/StatsBar';
+// import StatsBar from './components/StatsBar';
 import MapView from './components/MapView';
 import ReportWizard from './components/ReportWizard';
 import TicketList from './components/TicketList';

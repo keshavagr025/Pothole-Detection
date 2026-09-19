@@ -67,17 +67,19 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
           gap: '0.75rem',
           flexWrap: 'nowrap'
         }}>
-          {/* Left-Aligned Government Navigation Tabs */}
+          {/* Evenly Separated Government Navigation Tabs */}
           <nav
             className="nav-scroll-container"
             style={{
               display: 'flex',
               alignItems: 'center',
               background: '#f1f5f9',
-              padding: '0.2rem',
-              borderRadius: 8,
+              padding: '0.25rem',
+              borderRadius: 10,
               border: '1px solid #cbd5e1',
-              maxWidth: '100%'
+              flex: 1,
+              maxWidth: 960,
+              gap: '0.35rem'
             }}
           >
             {!isAuthenticated ? (
@@ -90,11 +92,13 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.85rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'landing' ? '#ffffff' : 'transparent',
                     color: activeTab === 'landing' ? '#002147' : 'var(--text-secondary)',
@@ -102,82 +106,94 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'landing' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                    boxShadow: activeTab === 'landing' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
                 >
                   <Home size={14} />
-                  {t('nav_overview')}
+                  <span>{t('nav_overview')}</span>
                 </button>
 
                 <a
                   href="#tech-architecture"
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.85rem',
+                    borderRadius: 7,
                     color: 'var(--text-secondary)',
                     fontWeight: 700,
                     fontSize: '0.8rem',
                     textDecoration: 'none',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.15s ease'
                   }}
                 >
                   <Sparkles size={14} color="#ea580c" />
-                  {t('nav_ai_tech')}
+                  <span>{t('nav_ai_tech')}</span>
                 </a>
 
                 <a
                   href="#national-impact"
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.85rem',
+                    borderRadius: 7,
                     color: 'var(--text-secondary)',
                     fontWeight: 700,
                     fontSize: '0.8rem',
                     textDecoration: 'none',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.15s ease'
                   }}
                 >
                   <BarChart3 size={14} color="#002147" />
-                  {t('nav_impact')}
+                  <span>{t('nav_impact')}</span>
                 </a>
 
                 <a
                   href="#portal-faqs"
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.85rem',
+                    borderRadius: 7,
                     color: 'var(--text-secondary)',
                     fontWeight: 700,
                     fontSize: '0.8rem',
                     textDecoration: 'none',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.15s ease'
                   }}
                 >
                   <CheckCircle2 size={14} color="#16a34a" />
-                  {t('nav_faqs')}
+                  <span>{t('nav_faqs')}</span>
                 </a>
               </>
             ) : (
-              /* Authenticated Operational Tools Navigation */
+              /* Authenticated Operational Tools Navigation - Evenly Distributed */
               <>
                 <button
                   type="button"
                   onClick={() => setActiveTab('dashboard')}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.75rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'dashboard' ? '#002147' : 'transparent',
                     color: activeTab === 'dashboard' ? '#ffffff' : 'var(--text-secondary)',
@@ -185,22 +201,27 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'dashboard' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                    boxShadow: activeTab === 'dashboard' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
+                  onMouseEnter={e => { if (activeTab !== 'dashboard') e.currentTarget.style.background = '#e2e8f0'; }}
+                  onMouseLeave={e => { if (activeTab !== 'dashboard') e.currentTarget.style.background = 'transparent'; }}
                 >
                   <Home size={14} />
-                  {t('nav_dashboard')}
+                  <span>{t('nav_dashboard')}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('wizard')}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.95rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.75rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'wizard' ? '#ea580c' : 'transparent',
                     color: activeTab === 'wizard' ? '#ffffff' : 'var(--text-secondary)',
@@ -208,22 +229,27 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'wizard' ? '0 2px 6px rgba(234, 88, 12, 0.3)' : 'none'
+                    boxShadow: activeTab === 'wizard' ? '0 2px 6px rgba(234, 88, 12, 0.3)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
+                  onMouseEnter={e => { if (activeTab !== 'wizard') e.currentTarget.style.background = '#ffedd5'; }}
+                  onMouseLeave={e => { if (activeTab !== 'wizard') e.currentTarget.style.background = 'transparent'; }}
                 >
-                  <Sparkles size={14} />
-                  {t('nav_report_pothole')}
+                  <Sparkles size={14} color={activeTab === 'wizard' ? '#ffffff' : '#ea580c'} />
+                  <span>{t('nav_report_pothole')}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('map')}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.75rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'map' ? '#002147' : 'transparent',
                     color: activeTab === 'map' ? '#ffffff' : 'var(--text-secondary)',
@@ -231,22 +257,27 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'map' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                    boxShadow: activeTab === 'map' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
+                  onMouseEnter={e => { if (activeTab !== 'map') e.currentTarget.style.background = '#e2e8f0'; }}
+                  onMouseLeave={e => { if (activeTab !== 'map') e.currentTarget.style.background = 'transparent'; }}
                 >
                   <Map size={14} />
-                  {t('nav_gis_map')}
+                  <span>{t('nav_gis_map')}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('list')}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.75rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'list' ? '#002147' : 'transparent',
                     color: activeTab === 'list' ? '#ffffff' : 'var(--text-secondary)',
@@ -254,22 +285,27 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'list' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                    boxShadow: activeTab === 'list' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
+                  onMouseEnter={e => { if (activeTab !== 'list') e.currentTarget.style.background = '#e2e8f0'; }}
+                  onMouseLeave={e => { if (activeTab !== 'list') e.currentTarget.style.background = 'transparent'; }}
                 >
                   <ListFilter size={14} />
-                  {t('nav_grievances')}
+                  <span>{t('nav_grievances')}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('analytics')}
                   style={{
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: 6,
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.48rem 0.75rem',
+                    borderRadius: 7,
                     border: 'none',
                     background: activeTab === 'analytics' ? '#002147' : 'transparent',
                     color: activeTab === 'analytics' ? '#ffffff' : 'var(--text-secondary)',
@@ -277,11 +313,14 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
-                    boxShadow: activeTab === 'analytics' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none'
+                    boxShadow: activeTab === 'analytics' ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                    transition: 'all 0.15s ease'
                   }}
+                  onMouseEnter={e => { if (activeTab !== 'analytics') e.currentTarget.style.background = '#e2e8f0'; }}
+                  onMouseLeave={e => { if (activeTab !== 'analytics') e.currentTarget.style.background = 'transparent'; }}
                 >
                   <BarChart3 size={14} />
-                  {t('nav_analytics')}
+                  <span>{t('nav_analytics')}</span>
                 </button>
               </>
             )}
