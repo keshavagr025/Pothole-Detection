@@ -44,9 +44,9 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
       {/* 1. Official Government Top Header (Tiranga ribbon, Ashoka emblem, Helplines, Lang Toggle) */}
       <GovHeader />
 
-      {/* 2. Primary Navigation Bar */}
+      {/* 2. Primary Navigation Bar (Left-Aligned Navigation) */}
       <header style={{
-        minHeight: 58,
+        minHeight: 52,
         borderBottom: '1px solid #cbd5e1',
         background: '#ffffff',
         position: 'sticky',
@@ -54,7 +54,7 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
-        padding: '0.4rem 1rem',
+        padding: '0.35rem 1rem',
         boxShadow: '0 2px 4px rgba(0, 33, 71, 0.05)'
       }}>
         <div style={{
@@ -67,43 +67,12 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
           gap: '0.75rem',
           flexWrap: 'nowrap'
         }}>
-          {/* Brand Identity / Quick Home */}
-          <div
-            style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: 'pointer', flexShrink: 0 }}
-            onClick={() => setActiveTab('landing')}
-            title="MĀRG-DRISHTI • National Road Distress Surveillance Portal"
-          >
-            <div style={{
-              width: 36,
-              height: 36,
-              borderRadius: 8,
-              background: 'linear-gradient(135deg, #002147 0%, #0a2540 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(0, 33, 71, 0.25)',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <Shield size={20} color="#ff9933" />
-            </div>
-            <div>
-              <span style={{ fontSize: '1.05rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#002147' }}>
-                {isHindi ? (
-                  <>मार्ग<span style={{ color: '#ea580c' }}>-दृष्टि</span></>
-                ) : (
-                  <>MĀRG<span style={{ color: '#ea580c' }}>-DRISHTI</span></>
-                )}
-              </span>
-              <span style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                {isHindi ? 'सड़क परिवहन एवं राजमार्ग मंत्रालय' : 'MoRTH • NHAI Portal'}
-              </span>
-            </div>
-          </div>
-
-          {/* Center Government Navigation Tabs */}
+          {/* Left-Aligned Government Navigation Tabs */}
           <nav
             className="nav-scroll-container"
             style={{
+              display: 'flex',
+              alignItems: 'center',
               background: '#f1f5f9',
               padding: '0.2rem',
               borderRadius: 8,

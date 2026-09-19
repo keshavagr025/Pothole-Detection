@@ -1,10 +1,48 @@
-import React, { useState } from 'react';
-import { Phone, Shield, ExternalLink, Globe, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, Shield, ExternalLink, Globe, Sparkles, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function GovHeader() {
   const { language, setLanguage, toggleLanguage, t, isHindi, isEnglish } = useLanguage();
   const [fontSize, setFontSize] = useState('normal');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const slides = [
+    {
+      id: 'gati-shakti',
+      badge: isHindi ? 'पीएम गति शक्ति' : 'PM Gati Shakti',
+      tag: isHindi ? 'राष्ट्रीय मास्टर प्लान' : 'National Master Plan',
+      title: isHindi ? 'दिल्ली-मुंबई एवं 10,000+ किमी उच्च गति एक्सप्रेसवे नेटवर्क' : 'Delhi-Mumbai & 10,000+ km Expressway Corridors',
+      desc: isHindi ? 'आधुनिक 8-लेन सड़कें, निर्बाध लॉजिस्टिक्स व विश्वस्तरीय संपर्क' : 'Modern 8-Lane Expressways & Seamless Multimodal Freight',
+      image: '/banners/expressway.jpg',
+    },
+    {
+      id: 'ai-surveillance',
+      badge: isHindi ? 'एआई दृष्टि सर्विलांस' : 'AI Vision Surveillance',
+      tag: isHindi ? 'सड़क गुणवत्ता परीक्षण' : 'Smart Road Scanning',
+      title: isHindi ? 'हाईवे लेजर स्कैनिंग एवं स्वचालित गड्ढा पहचान' : 'High-Speed Laser Scanning & Pothole Detection',
+      desc: isHindi ? 'YOLOv8 एआई द्वारा त्वरित पहचान और 24-48 घंटे की समय-सीमा' : 'Real-Time YOLOv8 AI Analysis with 24-48h Statutory SLA',
+      image: '/banners/ai_surveillance.jpg',
+    },
+    {
+      id: 'bharatmala',
+      badge: isHindi ? 'भारतमाला परियोजना' : 'Bharatmala Pariyojana',
+      tag: isHindi ? 'आर्थिक गलियारे' : 'Economic Corridors',
+      title: isHindi ? '34,800 किमी राष्ट्रीय राजमार्ग एवं सीमावर्ती संपर्क' : '34,800 km World-Class National Highway Grid',
+      desc: isHindi ? 'देश के सभी 28 राज्यों और केंद्र शासित प्रदेशों में उन्नत सड़कें' : 'Pan-India Connectivity Connecting Ports, Hubs & Borders',
+      image: '/banners/bharatmala.jpg',
+    }
+  ];
+
+  // Auto-slide every 2.8 seconds
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, [isPaused, slides.length]);
 
   const handleFontSize = (size) => {
     setFontSize(size);
@@ -16,6 +54,8 @@ export default function GovHeader() {
       document.documentElement.style.fontSize = '15px';
     }
   };
+
+  const activeSlide = slides[currentSlide];
 
   return (
     <div className="gov-header-wrapper">
@@ -111,10 +151,30 @@ export default function GovHeader() {
         </div>
       </div>
 
-      {/* 3. Official Government Banner */}
-      <div className="gov-main-banner">
+      {/* 3. Official Government Banner with Full Background Slider */}
+      <div
+        className="gov-main-banner"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Full-width Background Image Slider (Crossfading every 2-3s) */}
+        <div className="gov-banner-bg-slider" aria-hidden="true">
+          {slides.map((slide, idx) => (
+            <div
+              key={slide.id}
+              className={`gov-banner-bg-slide ${currentSlide === idx ? 'active' : ''}`}
+              style={{
+                backgroundImage: `url(${slide.image})`
+              }}
+            />
+          ))}
+          {/* Subtle light/protective gradient overlay ensuring 100% typography readability */}
+          <div className="gov-banner-overlay"></div>
+        </div>
+
+        {/* Foreground Content (Logo, Emblem, Title, Project Showcase) */}
         <div className="gov-container gov-banner-inner">
-          {/* Ashoka Lion Capital Emblem */}
+          {/* Ashoka Lion Capital Emblem & Portal Title Block */}
           <div className="gov-emblem-section">
             <div className="ashoka-emblem" title="State Emblem of India • सत्यमेव जयते">
               {/* High Quality Official Lion Capital of Ashoka Vector Crest */}
@@ -169,38 +229,22 @@ export default function GovHeader() {
             </div>
           </div>
 
-          {/* Official Government Badges */}
-          <div className="gov-mission-badges">
-            <div className="gov-pill-badge gati-shakti" title="PM Gati Shakti National Master Plan Integration">
-              <div className="badge-bullet"></div>
-              <div>
-                <span className="pill-title">PM Gati Shakti</span>
-                <span className="pill-sub">{isHindi ? 'राष्ट्रीय मास्टर प्लान' : 'National Master Plan'}</span>
-              </div>
+          {/* Right-Hand Minimalist Slide Indicators */}
+          <div className="gov-banner-slide-indicator">
+            <div className="indicator-pill">
+              <span className="pulse-dot"></span>
+              <span>{activeSlide.badge}</span>
             </div>
-
-            <div className="gov-pill-badge digital-india" title="Digital India Mission">
-              <div className="badge-bullet green"></div>
-              <div>
-                <span className="pill-title">Digital India</span>
-                <span className="pill-sub">{isHindi ? 'नागरिक तकनीक मंच' : 'Civic Tech Platform'}</span>
-              </div>
-            </div>
-
-            <div className="gov-pill-badge nhai-badge" title="National Highways Authority of India & State PWDs">
-              <div className="badge-bullet blue"></div>
-              <div>
-                <span className="pill-title">NHAI &amp; PWD</span>
-                <span className="pill-sub">{isHindi ? 'आईआरसी:एसपी:72 मानक' : 'IRC:SP:72 Standard'}</span>
-              </div>
-            </div>
-
-            <div className="gov-pill-badge cpgrams-badge" title="CPGRAMS Public Grievance Interoperable">
-              <Shield size={14} color="#0284c7" />
-              <div>
-                <span className="pill-title">CPGRAMS</span>
-                <span className="pill-sub">{isHindi ? 'समय-सीमा बाध्य' : 'SLA Enforced'}</span>
-              </div>
+            <div className="slider-dots">
+              {slides.map((s, idx) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  className={`slider-dot ${currentSlide === idx ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
