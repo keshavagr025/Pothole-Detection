@@ -20,7 +20,7 @@ import {
   Camera,
   Video
 } from 'lucide-react';
-import StatsBar from './StatsBar';
+// import StatsBar from './StatsBar';
 import { useAuth } from '../context/AuthContext';
 import { getMediaUrl, FALLBACK_ROAD_IMAGE } from '../services/api';
 
@@ -60,9 +60,344 @@ export default function DashboardOverview({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', paddingBottom: '2rem' }}>
       {/* 1. Real-Time National KPI Stats Bar */}
-      <StatsBar stats={stats} />
+      {/* <StatsBar stats={stats} /> */}
 
-      {/* 3. Feature Suite Operational Launchpad (All 5 Pillars) */}
+      {/* 2. Government Ground Action & Fleet Surveillance (Floating Photographic Showcase) */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#002147', margin: 0, display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+            <Building2 size={19} color="#ea580c" />
+            Government Road Enforcement Fleet &amp; Ground Action
+          </h3>
+          <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
+            Live NHAI, State PWD &amp; Municipal Response Units
+          </span>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '1.15rem'
+        }}>
+          {/* Action Card 1: Rapid Road Patching Unit */}
+          <div
+            onClick={() => onNavigateTab('list')}
+            style={{
+              position: 'relative',
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: '#0f172a',
+              boxShadow: '0 4px 14px rgba(0, 33, 71, 0.08)',
+              border: '1px solid #cbd5e1',
+              cursor: 'pointer',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 33, 71, 0.18)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 33, 71, 0.08)';
+            }}
+          >
+            <div style={{ height: 155, position: 'relative', overflow: 'hidden' }}>
+              <img
+                src="/banners/road_repair_action.jpg"
+                alt="Government Rapid Road Repair Patching Squad"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 10,
+                left: 10,
+                background: 'rgba(234, 88, 12, 0.94)',
+                color: '#ffffff',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 20,
+                fontSize: '0.7rem',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#ffffff', animation: 'pulseDot 1.5s infinite' }}></span>
+                <span>Squad #14 Active</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 50,
+                background: 'linear-gradient(to top, rgba(0,33,71,0.9), transparent)'
+              }}></div>
+            </div>
+
+            <div style={{ padding: '0.85rem 1rem', background: '#ffffff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#ea580c', textTransform: 'uppercase' }}>
+                  NHAI &amp; PWD Patching
+                </span>
+                <span style={{ fontSize: '0.65rem', background: '#f0fdf4', color: '#16a34a', padding: '0.1rem 0.35rem', borderRadius: 4, fontWeight: 700, border: '1px solid #bbf7d0' }}>
+                  IRC:SP:72
+                </span>
+              </div>
+              <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147', margin: '0 0 0.25rem' }}>
+                Hot-Mix Bitumen Compaction
+              </h4>
+              <p style={{ fontSize: '0.74rem', color: '#64748b', margin: '0 0 0.65rem', lineHeight: 1.35 }}>
+                Rapid municipal asphalt squads deployed to clear critical high-hazard road cavities.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.74rem', fontWeight: 800, color: '#ea580c', borderTop: '1px solid #f1f5f9', paddingTop: '0.5rem' }}>
+                <span>Work Orders ({potholes.length})</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          </div>
+
+          {/* Action Card 2: AI Mobile Laser Patrol Van */}
+          <div
+            onClick={() => onNavigateTab('wizard')}
+            style={{
+              position: 'relative',
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: '#0f172a',
+              boxShadow: '0 4px 14px rgba(0, 33, 71, 0.08)',
+              border: '1px solid #cbd5e1',
+              cursor: 'pointer',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 33, 71, 0.18)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 33, 71, 0.08)';
+            }}
+          >
+            <div style={{ height: 155, position: 'relative', overflow: 'hidden' }}>
+              <img
+                src="/banners/highway_laser_inspection.jpg"
+                alt="AI Highway Laser Road Quality Van"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 10,
+                left: 10,
+                background: 'rgba(2, 132, 199, 0.94)',
+                color: '#ffffff',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 20,
+                fontSize: '0.7rem',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#38bdf8', animation: 'pulseDot 1.5s infinite' }}></span>
+                <span>Laser Patrol RSV-41</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 50,
+                background: 'linear-gradient(to top, rgba(0,33,71,0.9), transparent)'
+              }}></div>
+            </div>
+
+            <div style={{ padding: '0.85rem 1rem', background: '#ffffff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase' }}>
+                  Computer Vision Suite
+                </span>
+                <span style={{ fontSize: '0.65rem', background: '#eff6ff', color: '#0284c7', padding: '0.1rem 0.35rem', borderRadius: 4, fontWeight: 700, border: '1px solid #bfdbfe' }}>
+                  YOLOv8 150ms
+                </span>
+              </div>
+              <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147', margin: '0 0 0.25rem' }}>
+                Laser HUD Cavity Profiling
+              </h4>
+              <p style={{ fontSize: '0.74rem', color: '#64748b', margin: '0 0 0.65rem', lineHeight: 1.35 }}>
+                Real-time mobile pavement depth scanner analyzing highway distress under 150ms latency.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.74rem', fontWeight: 800, color: '#0284c7', borderTop: '1px solid #f1f5f9', paddingTop: '0.5rem' }}>
+                <span>Launch AI Studio</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          </div>
+
+          {/* Action Card 3: Form-VII Statutory Proof */}
+          <div
+            onClick={() => onNavigateTab('map')}
+            style={{
+              position: 'relative',
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: '#0f172a',
+              boxShadow: '0 4px 14px rgba(0, 33, 71, 0.08)',
+              border: '1px solid #cbd5e1',
+              cursor: 'pointer',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 33, 71, 0.18)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 33, 71, 0.08)';
+            }}
+          >
+            <div style={{ height: 155, position: 'relative', overflow: 'hidden' }}>
+              <img
+                src="/banners/pothole_repaired_after.jpg"
+                alt="Form-VII Verified Repaired Road Section"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 10,
+                left: 10,
+                background: 'rgba(22, 163, 74, 0.94)',
+                color: '#ffffff',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 20,
+                fontSize: '0.7rem',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+              }}>
+                <CheckCircle2 size={13} />
+                <span>Form-VII Verified</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 50,
+                background: 'linear-gradient(to top, rgba(0,33,71,0.9), transparent)'
+              }}></div>
+            </div>
+
+            <div style={{ padding: '0.85rem 1rem', background: '#ffffff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#16a34a', textTransform: 'uppercase' }}>
+                  Statutory Clearance
+                </span>
+                <span style={{ fontSize: '0.65rem', background: '#f0fdf4', color: '#16a34a', padding: '0.1rem 0.35rem', borderRadius: 4, fontWeight: 700, border: '1px solid #bbf7d0' }}>
+                  Audit Passed
+                </span>
+              </div>
+              <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147', margin: '0 0 0.25rem' }}>
+                Repaired Pavement Proof
+              </h4>
+              <p style={{ fontSize: '0.74rem', color: '#64748b', margin: '0 0 0.65rem', lineHeight: 1.35 }}>
+                Statutory resolution with photographic proof and citizen reputation point disbursement.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.74rem', fontWeight: 800, color: '#16a34a', borderTop: '1px solid #f1f5f9', paddingTop: '0.5rem' }}>
+                <span>Explore Live GIS Map</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          </div>
+
+          {/* Action Card 4: Gati Shakti Expressway Grid */}
+          <div
+            onClick={() => onNavigateTab('analytics')}
+            style={{
+              position: 'relative',
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: '#0f172a',
+              boxShadow: '0 4px 14px rgba(0, 33, 71, 0.08)',
+              border: '1px solid #cbd5e1',
+              cursor: 'pointer',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 33, 71, 0.18)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 33, 71, 0.08)';
+            }}
+          >
+            <div style={{ height: 155, position: 'relative', overflow: 'hidden' }}>
+              <img
+                src="/banners/gati_shakti_expressway.jpg"
+                alt="PM Gati Shakti High Speed Expressway Corridor"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 10,
+                left: 10,
+                background: 'rgba(147, 51, 234, 0.94)',
+                color: '#ffffff',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 20,
+                fontSize: '0.7rem',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+              }}>
+                <Sparkles size={12} />
+                <span>Gati Shakti Masterplan</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 50,
+                background: 'linear-gradient(to top, rgba(0,33,71,0.9), transparent)'
+              }}></div>
+            </div>
+
+            <div style={{ padding: '0.85rem 1rem', background: '#ffffff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#9333ea', textTransform: 'uppercase' }}>
+                  National Infrastructure
+                </span>
+                <span style={{ fontSize: '0.65rem', background: '#faf5ff', color: '#9333ea', padding: '0.1rem 0.35rem', borderRadius: 4, fontWeight: 700, border: '1px solid #e9d5ff' }}>
+                  10,000+ km Grid
+                </span>
+              </div>
+              <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147', margin: '0 0 0.25rem' }}>
+                High-Speed Corridors
+              </h4>
+              <p style={{ fontSize: '0.74rem', color: '#64748b', margin: '0 0 0.65rem', lineHeight: 1.35 }}>
+                National road health benchmarking with zero-pothole corridors across 28 States.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.74rem', fontWeight: 800, color: '#9333ea', borderTop: '1px solid #f1f5f9', paddingTop: '0.5rem' }}>
+                <span>Inspect KPIs</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Feature Suite Operational Launchpad (All 4 Interactive Modules) */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
           <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#002147', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>

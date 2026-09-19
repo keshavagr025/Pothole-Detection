@@ -17,7 +17,7 @@ import {
   BadgeCheck,
   FileText
 } from 'lucide-react';
-import GovHeader from './GovHeader';
+import GovHeader, { GovTopBar, GovMainBanner } from './GovHeader';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -41,10 +41,10 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
 
   return (
     <>
-      {/* 1. Official Government Top Header (Tiranga ribbon, Ashoka emblem, Helplines, Lang Toggle) */}
-      <GovHeader />
+      {/* 1. Official Government Top Utility Ribbon (Tiranga ribbon, Helplines, Lang Switcher, Font Controls) */}
+      <GovTopBar />
 
-      {/* 2. Primary Navigation Bar (Left-Aligned Navigation) */}
+      {/* 2. Primary Navigation Bar (Sticky, Left-Aligned Navigation Tabs) */}
       <header style={{
         minHeight: 52,
         borderBottom: '1px solid #cbd5e1',
@@ -619,6 +619,9 @@ export default function Navbar({ activeTab, setActiveTab, serverHealth, onOpenDi
           </div>
         </div>
       </header>
+
+      {/* 3. Grand 3-Image Slider Banner Showcase (Positioned after the English/Hindi Top Bar & Sticky Navbar) */}
+      <GovMainBanner />
     </>
   );
 }

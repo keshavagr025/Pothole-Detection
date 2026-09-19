@@ -621,10 +621,12 @@ input[type=range]::-webkit-slider-thumb {
 .gov-main-banner {
   position: relative;
   border-bottom: 2px solid #002147;
-  padding: 0.85rem 1rem;
+  padding: 1.25rem 2rem;
   overflow: hidden;
-  background: #f8fafc;
-  min-height: 104px;
+  background: #091322;
+  min-height: 155px;
+  display: flex;
+  align-items: center;
 }
 .gov-banner-bg-slider {
   position: absolute;
@@ -646,10 +648,10 @@ input[type=range]::-webkit-slider-thumb {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 40%;
   opacity: 0;
   transform: scale(1.05);
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 5s linear;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 5s ease-out;
 }
 .gov-banner-bg-slide.active {
   opacity: 1;
@@ -663,13 +665,11 @@ input[type=range]::-webkit-slider-thumb {
   bottom: 0;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.97) 0%,
-    rgba(255, 255, 255, 0.92) 36%,
-    rgba(255, 255, 255, 0.76) 65%,
-    rgba(255, 255, 255, 0.90) 100%
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.82) 32%,
+    rgba(255, 255, 255, 0.12) 65%,
+    rgba(0, 33, 71, 0.28) 100%
   );
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
 }
 .gov-banner-inner {
   position: relative;
@@ -679,11 +679,19 @@ input[type=range]::-webkit-slider-thumb {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.25rem;
+  width: 100%;
 }
 .gov-emblem-section {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.85rem 1.35rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 22px rgba(0, 33, 71, 0.14);
 }
 .ashoka-emblem {
   display: flex;
@@ -737,7 +745,71 @@ input[type=range]::-webkit-slider-thumb {
   font-weight: 500;
 }
 
-/* 4. Minimalist Slide Indicator */
+/* 4. Floating Showcase Card & Slide Indicator */
+.gov-banner-showcase-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(0, 33, 71, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  color: #ffffff;
+  max-width: 440px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  transition: all 0.3s ease;
+}
+.showcase-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.showcase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fde047;
+}
+.showcase-stat-chip {
+  background: rgba(234, 88, 12, 0.95);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+.showcase-main-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+.showcase-desc {
+  font-size: 0.74rem;
+  color: #cbd5e1;
+  margin: 0.2rem 0 0;
+  line-height: 1.35;
+}
+.showcase-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.showcase-timer-hint {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
 .gov-banner-slide-indicator {
   display: flex;
   flex-direction: column;
@@ -782,14 +854,14 @@ input[type=range]::-webkit-slider-thumb {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #cbd5e1;
+  background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
   padding: 0;
 }
 .slider-dot.active {
-  background: #ea580c;
+  background: #ff9933;
   width: 18px;
   border-radius: 3px;
 }
